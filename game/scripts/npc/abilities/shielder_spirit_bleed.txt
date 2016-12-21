@@ -1,0 +1,159 @@
+"shielder_spirit_bleed"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "shielder_spirit_bleed"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_spectre/spectre_shadow_path.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "think_interval"            "0.1"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "3.0 3.25 3.5 3.75"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "path_width"      "150"
+        }
+        "04"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "path_duration"        "6"
+        }
+        "05"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "bonus_movement_speed" "15 20 25 30"
+        }
+        "06"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "chance"            "100" //25 30 35 40"
+        }
+        "07"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "grace_period"      "0.75"
+        }
+        "08"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "mana_gain"         "7 8 9 10"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_spirit_bleed_orb"
+        {
+            "Passive"            "1"
+            "IsHidden"            "1"
+    
+            "Orb"
+            {
+                "Priority"            "DOTA_ORB_PRIORITY_ABILITY"
+            }
+            
+            "OnOrbImpact"
+            {   
+                "Random"
+                {
+                    "Chance"            "%chance"
+                    "OnSuccess"
+                    {
+                        "ApplyModifier"
+                        {
+                            "ModifierName"    "modifier_spirit_bleed"
+                            "Target"         "TARGET"
+                            "Duration"        "%duration"
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+        "modifier_spirit_bleed"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "1"
+            "IsBuff"            "0"
+            "IsDebuff"            "1"
+        
+            "ThinkInterval"  "%think_interval"
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_shielder/spirit_bleed.lua"
+                    "Function"        "SpiritBleed_OnTick"
+                }
+            }
+
+            "States"
+            {
+                "MODIFIER_STATE_PROVIDES_VISION"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+        "modifier_spirit_bleed_buff"
+        {
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed" 
+            }
+
+            "ThinkInterval"  "%think_interval"
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_shielder/spirit_bleed.lua"
+                    "Function"        "SpiritBleed_OnMove"
+                }
+            }
+
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_shielder/spirit_bleed.lua"
+                    "Function"        "SpiritBleed_RemovePosTracker"
+                }
+            }
+        }
+    }
+
+    "OnProjectileHitUnit"
+    {
+        "DeleteOnHit"    "0"
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_shielder/spirit_bleed.lua"
+            "Function"        "SpiritBleed_CheckRange"
+            "Target"            "TARGET"
+            "buff_duration"     "%grace_period"
+            "buff"              "modifier_spirit_bleed_buff"
+        }
+    }
+}

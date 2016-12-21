@@ -1,0 +1,131 @@
+"xirgil_shatter"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "naga_siren_mirror_image"
+    "MaxLevel"                         "3"
+    "FightRecapLevel"                    "2"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                "120 110 100"
+    "AbilityManaCost"                "275 325 375"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "gather_range"            "1300"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "radius"            "625"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "shadow_count"      "4 8 12"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "untargetable_duration" "0.1"
+        }
+        "05"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "duration"          "12"
+        }
+        "06"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_incoming_damage"    "0.0"
+        }
+        "07"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_outgoing_damage"    "-100.0"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "FireSound"
+        {
+            "EffectName" "Hero_PhantomLancer.Doppelganger.Cast"
+            "Target"    "CASTER"
+        }
+        
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"                "CASTER"
+                "Radius"                "%gather_range"
+                "Teams"                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                "Types"                 "DOTA_UNIT_TARGET_HERO"
+            }
+
+            "Action"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
+                    "Function"  "CheckUnits"    
+                }
+            }
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_shatter"
+        {           
+            "IsHidden"  "0"
+
+            "States"
+            {
+                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_OUT_OF_GAME"    "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+            }
+
+            "OnCreated"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
+                    "Function"  "ShatterStart"
+                }
+            }
+
+            "OnDestroy"
+            {
+                "FireSound"
+                {
+                    "EffectName"    "Hero_PhantomLancer.Doppelganger.Appear"
+                    "Target"    "CASTER"
+                }
+
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
+                    "Function"  "ShatterEnd"                   
+                }                   
+            }               
+        }
+    }
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+    }
+
+}

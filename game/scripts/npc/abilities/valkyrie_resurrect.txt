@@ -1,0 +1,90 @@
+"valkyrie_resurrect"
+{   
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "omniknight_repel"
+    "MaxLevel"                         "3"
+    "FightRecapLevel"                   "2"
+
+
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO"
+
+    "AbilityCooldown"                "120 110 100"
+    "AbilityManaCost"                "350"
+
+    "AbilityCastRange"                "400 600 800"
+    "AbilityCastPoint"                "0"
+    "AbilityChannelTime"              "%channel_time"
+    "AbilityCastAnimation"            "ACT_DOTA_TELEPORT"
+    "AOERadius"                         "%search_radius"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "resurrect_health"            "60 75 90"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "resurrect_mana"        "30 60 90"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "health_cost"          "30 25 20"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "search_radius"         "200"
+        }
+        "05" 
+        {
+            "var_type"              "FIELD_FLOAT" 
+            "channel_time"          "1.2"
+        }
+    }
+
+    "OnAbilityPhaseStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_valkyrie/resurrect.lua"
+            "Function"        "Resurrect_PreCastCheck"
+            "Target"        "POINT"
+            "health_cost"   "%health_cost"
+            "search_radius" "%search_radius"
+
+        }
+    }
+
+    "OnChannelInterrupted"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_valkyrie/resurrect.lua"
+            "Function"        "Resurrect_Cancel"
+        }
+    }
+
+    "OnChannelSucceeded"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_valkyrie/resurrect.lua"
+            "Function"        "Resurrect"
+            "Target"        "POINT"
+            "health_cost"   "%health_cost"
+            "search_radius" "%search_radius"
+            "res_health"    "%resurrect_health"
+            "res_mana"      "%resurrect_mana"
+
+        }
+    }
+}

@@ -1,0 +1,44 @@
+"soldier_rocket_blast"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "lina_light_strike_array"
+    "MaxLevel"                         "3"
+    "FightRecapLevel"                   "2"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCooldown"                "60 50 40"
+    "AbilityManaCost"                "150 180 210"
+    "AbilityDamage"                    "300 450 600"
+
+    "AbilityCastRange"                "500"
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_4"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "secondary_damage"            "200 300 400"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "2.5 3.0 3.5"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "cone_length"           "325"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "cone_angle"            "60"
+        }
+    }
+}

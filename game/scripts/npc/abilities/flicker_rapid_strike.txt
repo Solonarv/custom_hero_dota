@@ -1,0 +1,37 @@
+"flicker_rapid_strike"
+{
+
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "heroes/hero_flicker/flicker_rapid_strike.lua"
+    "AbilityTextureName"            "ember_spirit_sleight_of_fist"
+    "MaxLevel"                         "4"
+
+
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilityUnitTargetFlags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+    "AbilityCooldown"                "15 13 11 9"
+    "AbilityManaCost"                "120"
+    "AbilityCastRange"                "325"
+    "AbilityCastPoint"                "0.4"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_2"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "attack_count"            "2 2 3 4"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "base_attack_time"        "1.0 0.8 0.8 0.6"
+        }
+    }
+
+}

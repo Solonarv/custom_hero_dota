@@ -1,0 +1,46 @@
+"flicker_flash_step"
+{
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "heroes/hero_flicker/flicker_flash_step.lua"
+    "AbilityTextureName"            "phantom_assassin_phantom_strike"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+
+    "AbilityCooldown"                "0.5"
+    "AbilityManaCost"                "50"
+    "AbilityCastRange"                "0"
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_2"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "max_charges"            "3 4 4 5"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "charge_restore_time"        "15 13 11 9"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "trace_duration"            "12"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "blink_range"       "700"
+        }
+    }
+
+    "precache"
+    {
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+        "particle"          "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+        "particle"              "particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf"
+    }
+}

@@ -1,0 +1,114 @@
+"flicker_stabilize"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "earthshaker_aftershock"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET" 
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCooldown"                "17 15 13 11"
+    "AbilityManaCost"                "90 105 120 135"
+    "AbilityDamage"                    "100 150 200 250"
+
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                "%radius"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "radius"            "425"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "3.0"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER" 
+            "movement_slow"         "-25 -30 -35 -40"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "hits_per_charge"       "4 3 2 2"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "charges_per_hero"      "1"
+        }
+
+    }
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_debuff.vpcf"
+        //"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_flicker/stabilize.lua"
+            "Function"        "Stabilize_GiveCharges"
+        }
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"      "CASTER"
+                "Radius"     "%radius"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        
+            "Action"    
+            {
+                "Damage"
+                {
+                    "Target"        "TARGET"
+                    "Type"            "DAMAGE_TYPE_MAGICAL"
+                    "Damage"        "%AbilityDamage"
+                }
+
+                "ApplyModifier"
+                {
+                    "ModifierName"    "modifier_stabilize_slow"
+                    "Target"         "TARGET"
+                    "Duration"        "%duration"
+                }
+            }
+
+            
+        } 
+    }
+
+    "Modifiers"
+    {
+        "modifier_stabilize_slow"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsDebuff"            "1"
+
+            "IsPurgable"        "1"
+            "IsBuff"            "0"
+    
+            "EffectName"    "particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger_debuff.vpcf"
+            "EffectAttachType"  "follow_origin"
+    
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow" 
+            }
+        }
+    }
+}

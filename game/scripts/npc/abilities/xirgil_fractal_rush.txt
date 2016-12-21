@@ -1,0 +1,123 @@
+"xirgil_fractal_rush"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "phantom_lancer_phantom_edge"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+    "AOERadius"                         "%gather_range"
+
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                "400"
+
+    "AbilityCooldown"                "18 15 12 9"
+    "AbilityManaCost"                "100 110 120 130"
+    "AbilityDamage"                 "20 26 32 38"
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"            "3.0 4.0 5.0 6.0"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "gather_range"        "1300"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "shadow_threshold"      "1 2 3 4"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "travel_time"       "0.8"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_incoming_damage"    "0.0"
+        }
+        "06"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_outgoing_damage"    "-100.0"
+        }
+        "07" 
+        {
+            "var_type"              "FIELD_INTEGER"
+            "damage_width"          "250"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"                "POINT"
+                "Radius"                "%gather_range"
+                "Teams"                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                "Types"                 "DOTA_UNIT_TARGET_HERO"
+            }
+
+            "Action"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
+                    "Function"  "CheckUnits"    
+                }
+            }
+        }
+
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
+            "Function"        "FractalRush"
+            "Target"        "POINT"
+            "modifier"      "modifier_fractal_rush"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_fractal_rush"
+        {
+            "IsHidden"  "1"
+            
+            "States"
+            {
+                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "0" 
+            }
+
+             "ThinkInterval"  "0.05"
+             "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
+                    "Function"        "FractalRush_Think"
+                }
+            }
+        }
+    }
+}

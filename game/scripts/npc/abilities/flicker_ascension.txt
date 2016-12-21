@@ -1,0 +1,73 @@
+"flicker_ascension"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "skywrath_mage_mystic_flare"
+    "MaxLevel"                         "3"
+
+    "AbilityType"                       "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    "AbilityCastPoint"                "0"
+    "AbilityCastAnimation"            "ACT_DOTA_FLINCH"
+
+    "AbilityCooldown"                "150 140 130"
+    "AbilityManaCost"                "225"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "reach_increase"            "50 70 90"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "4.0 5.0 6.0"
+        }
+    }
+
+    "precache"
+    {
+        "particle"                 "particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+        //"soundfile" "soundevents/game_sounds_heroes/game_sounds_HERO.vsndevts"
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_flicker/ascension.lua"
+            "Function"        "RefreshCooldowns"
+        }
+
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_ascension"
+            "Target"         "CASTER"
+            "Duration"        "%duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_ascension"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsDebuff"            "0"
+
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+            "IsDebuff"            "0"
+            "IsStunDebuff"        "0"
+            //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)
+    
+            "EffectName"        "particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+            "EffectAttachType"    "follow_origin"
+    
+            
+        }
+    }
+}

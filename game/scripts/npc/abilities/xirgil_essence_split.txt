@@ -1,0 +1,101 @@
+"xirgil_essence_split"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "phantom_lancer_doppelwalk"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
+
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+    "AbilityCastRange"                "0"
+
+    "AbilityCooldown"                "20 16 12 8"
+    "AbilityManaCost"                "130 125 120 115"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"            "2.5 3.0 3.5 4.0"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "dash_range"        "600"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "speed"             "3000"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_incoming_damage"    "0.0"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "shadow_outgoing_damage"    "-100.0"
+        }
+        "06"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "shadow_count"      "3"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "FireSound"
+        {
+            "EffectName"    "Hero_FacelessVoid.TimeWalk"
+            "Target"         "CASTER"
+        }
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
+            "Function"      "EssenceSplit"
+            "Target"        "POINT"
+            "modifier"       "modifier_essence_split"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_essence_split"
+        {
+            "IsHidden"  "1"
+
+            // Use this if you want to achieve a "time walk" effect for heroes other than faceless
+            "EffectName"        "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
+            "EffectAttachType"  "follow_origin"
+            
+            "States"
+            {
+                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_STUNNED"                  "MODIFIER_STATE_VALUE_ENABLED"
+            }
+
+             "ThinkInterval"  "0.05"
+             "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
+                    "Function"        "EssenceSplit_Motion"
+                }
+            }
+        }
+    }
+
+    "precache"
+    {
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_time_walk_preimage.vpcf"
+        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_time_walk_slow.vpcf"
+        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
+    }
+}

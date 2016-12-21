@@ -1,0 +1,145 @@
+"shielder_essence_drain"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+    "FightRecapLevel"               "1"
+    "AbilityTextureName"            "death_prophet_spirit_siphon"
+
+    // Precache
+    "precache"
+    {
+        "particle"      "particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"
+        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+    }
+        
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "500"
+    "AbilityCastPoint"              "0.1"
+    "AbilityCooldown"                "12"
+    "AbilityManaCost"                "90 105 120 135"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                      "FIELD_FLOAT"
+            "damage"                    "40 50 60 70"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "movement_buff"                 "5 10 15 20"
+        }
+        "03"
+        {
+            "var_type"                      "FIELD_FLOAT"
+            "duration"                "5"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "movement_slow"                 "-20 -25 -30 -35"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "buffer"         "300"
+        }
+        // Extra
+        "08"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "think_interval"        "0.25"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_essence_drain"
+            "Target"         "TARGET"
+            "Duration"        "%duration"
+        }
+
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_essence_drain_speed"
+            "Target"         "CASTER"
+            "Duration"        "%duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_essence_drain"
+        {
+            "IsPurgable"        "1"
+            "IsHidden"          "0"
+            "IsDebuff"          "1"
+
+            "ThinkInterval"  "%think_interval"
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_shielder/essence_drain.lua"
+                    "Function"      "EssenceDrain"
+                    "modifier"      "modifier_essence_drain"
+                    "buff"          "modifier_essence_drain_speed"
+                }
+            }
+    
+            "OnCreated"
+            {
+                "FireSound"
+                {
+                    "EffectName"    "Hero_DeathProphet.SpiritSiphon.Target"
+                    "Target"        "TARGET"
+                }
+
+                "AttachEffect"
+                {
+                    "EffectName"    "particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"
+                    "EffectAttachType"  "start_at_customorigin"
+                    "Target"        "TARGET"
+
+                    "ControlPointEntities"
+                    {
+                        "CASTER"    "attach_hitloc"
+                        "TARGET"    "attach_hitloc"
+                    }
+                }
+            }
+
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow" 
+            }
+
+            "States"
+            {
+                "MODIFIER_STATE_PROVIDES_VISION"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+        "modifier_essence_drain_speed"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_buff" 
+            }
+        }
+    }
+}

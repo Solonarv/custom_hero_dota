@@ -1,0 +1,109 @@
+"valkyrie_ghost_form"
+{   
+
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "riki_permanent_invisibility"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+
+    "AbilityCooldown"                "12 10 8 6"
+    "AbilityManaCost"                "20"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "bonus_movement_speed"            "10 13 16 19"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "evade_chance"        "20 25 30 35"
+        }
+        "03"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "mana_per_second"     "20 25 30 35"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "spend_interval"    "0.2"
+        }
+        "05"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "mana_per_tick"     "4 5 6 7"
+        }
+    }
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_abaddon/abaddon_frost_buff.vpcf"
+    }
+
+    "OnToggleOn"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_ghost_form"
+            "Target"         "CASTER"
+        }
+    }
+
+    "OnToggleOff"
+    {
+        "RemoveModifier"
+        {
+            "ModifierName"    "modifier_ghost_form"
+            "Target"         "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_ghost_form"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+            "IsDebuff"            "0"
+            "IsStunDebuff"        "0"
+    
+            "EffectName"        "particles/units/heroes/hero_abaddon/abaddon_frost_buff.vpcf"
+            "EffectAttachType"    "follow_origin"
+    
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
+                "MODIFIER_PROPERTY_DISABLE_AUTOATTACK"          "1"
+                "MODIFIER_PROPERTY_EVASION_CONSTANT"            "%evade_chance"
+
+            }
+
+            "States"
+            {
+                "MODIFIER_STATE_FLYING"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+
+            "ThinkInterval"  "%spend_interval"
+            "OnIntervalThink"
+            {
+                "SpendMana"
+                {
+                    "Mana"        "%mana_per_tick"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_valkyrie/ghost_form.lua"
+                    "Function"        "CheckMana"
+                    "threshold"       "%mana_per_second"
+                    "modifier"        "modifier_ghost_form"
+                }
+            }
+        }
+    }
+}

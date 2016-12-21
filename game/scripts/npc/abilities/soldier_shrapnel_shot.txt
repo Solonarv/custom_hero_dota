@@ -1,0 +1,89 @@
+"soldier_shrapnel_shot"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "sniper_assassinate"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCooldown"                "14 13 12 11"
+    "AbilityManaCost"                "70 80 90 100"
+    "AbilityDamage"                    "100 150 200 250"
+
+    "AbilityCastRange"                "%range"
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_4"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "range"            "550"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "1.25 1.5 1.75 2.0"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "stun_range"             "325"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "cone_angle"         "45"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"      "CASTER"
+                "Radius"     "%range"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        
+            "Action"    
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_soldier/shrapnel_shot.lua"
+                    "Function"        "ShrapnelShot"
+                    "angle"         "%cone_angle"
+                    "stun_range"    "%stun_range"
+                    "duration" "%duration"
+                }
+            }
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_shrapnel_shot_stun"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "1"
+            "IsBuff"            "0"
+            "IsDebuff"            "1"
+            "IsStunDebuff"        "1"
+            //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)
+            
+            "States"
+            {
+                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+            
+        }
+    }
+}

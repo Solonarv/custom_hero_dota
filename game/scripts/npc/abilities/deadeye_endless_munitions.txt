@@ -1,0 +1,104 @@
+"deadeye_endless_munitions"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "deadeye_endless_munitions"
+    "MaxLevel"                         "3"
+    "FightRecapLevel"                   "2"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+
+    "AbilityCastPoint"                "0"
+    "AbilityCastAnimation"            "ACT_DOTA_IDLE"
+
+    "AbilityCooldown"                 "180 160 140"
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_drow/drow_marksmanship_start.vpcf"
+        "particle"  "particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "6.0 8.0 10.0"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "extra_arrows"          "2 2 4"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_endless_munitions"
+            "Target"         "CASTER"
+            "Duration"        "%duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_endless_munitions"
+        {
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+            "IsDebuff"            "0"
+            "IsStunDebuff"        "0"
+    
+            "OnCreated"
+            {
+                "FireEffect"
+                {
+                    "Target"                "CASTER"
+                    "EffectName"            "particles/units/heroes/hero_drow/drow_marksmanship_start.vpcf"
+                    "EffectAttachType"      "start_at_customorigin"
+                    "ControlPointEntities"
+                    {
+                        "CASTER"            "attach_attack1"
+                    }
+                }
+            
+                "AttachEffect"
+                {
+                    "Target"                "CASTER"
+                    "EffectName"            "particles/units/heroes/hero_drow/drow_marksmanship.vpcf"
+                    "EffectAttachType"      "follow_origin"
+                    "ControlPoints"
+                    {
+                        "02"                "150 150 150"
+                    }
+                }
+            }
+        }
+
+        "modifier_endless_munitions_passive"
+        {
+            "Passive"            "1"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        }
+    }
+
+    "OnUpgrade"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/endless_munitions.lua"
+            "Function"        "ReplaceAbility"
+            "ability_slot"      "0"
+        }
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/endless_munitions.lua"
+            "Function"        "ReplaceAbility"
+            "ability_slot"      "1"
+        }
+    }
+}

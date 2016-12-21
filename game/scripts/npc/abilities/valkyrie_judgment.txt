@@ -1,0 +1,145 @@
+"valkyrie_judgment"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "omniknight_purification"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCooldown"                "12"
+    "AbilityManaCost"                "100 110 120 130"
+    "AbilityDamage"                    "75 150 225 300"
+
+    "AbilityCastRange"                "525"
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "damage_delay"            "5"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "healing"        "75 150 225 300"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "partiality"            "30 40 50 60"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER" 
+            "proj_speed"            "1100"
+        }
+    }
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_vengefulspirit.vsndevts"
+        "particle"          "particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+    }
+
+    "OnSpellStart"
+    {   
+        "FireSound"
+        {
+            "EffectName"    "Hero_VengefulSpirit.MagicMissile"
+            "Target"        "CASTER"
+        }
+        
+        "TrackingProjectile"
+        {
+            "Target"            "TARGET"
+            "EffectName"        "particles/units/heroes/hero_vengeful/vengeful_magic_missle.vpcf"
+            "Dodgeable"         "1"
+            "ProvidesVision"    "0"
+            "MoveSpeed"         "%proj_speed"
+            "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+        }
+    }
+    "OnProjectileHitUnit"
+    {
+        "DeleteOnHit"    "1"
+        
+        "FireSound"
+        {
+            "EffectName"    "Hero_Omniknight.Purification"
+            "Target"        "TARGET"
+        }
+
+        "FireEffect"
+        {
+            "Target"            "TARGET"
+            "EffectName"        "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "ControlPoints"
+            {
+                "00"    "0 0 0"
+                "01"    "260 260 260"
+            }
+        }
+
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_valkyrie/judgment.lua"
+            "Function"        "Judgment"
+            "Target"            "TARGET"
+            "damage"        "%AbilityDamage"
+            "healing"       "%healing"
+            "marker"        "modifier_judgment_dealt_damage"
+            "partiality"     "%partiality"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_judgment_passive"
+        {
+            "Passive"            "1"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+    
+            "Aura"              "modifier_judgment_damage_tracker"
+            "Aura_Radius"       "9000"
+            "Aura_Teams"        "DOTA_UNIT_TARGET_TEAM_BOTH"
+            "Aura_Types"        "DOTA_UNIT_TARGET_HERO"
+            "Aura_Flags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+            "Aura_ApplyToCaster" "1"
+        }
+
+        "modifier_judgment_damage_tracker"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        
+            "OnTakeDamage"
+            // "%attack_damage" is set to the damage value after mitigation
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName"    "modifier_judgment_dealt_damage"
+                    "Target"         "ATTACKER"
+                    "Duration"        "%damage_delay"
+                }
+            }
+        }
+
+        "modifier_judgment_dealt_damage"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        }
+    }
+}

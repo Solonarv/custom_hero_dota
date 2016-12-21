@@ -1,0 +1,45 @@
+"npc_xirgil_shadow"
+{
+    "BaseClass"                     "npc_dota_creature"
+    "Model"                         "models/heroes/shadow_demon/shadow_demon.vmdl"
+    "UnitLabel"                     "xirgil_shadow"
+    "SoundSet"                      "Hero_ShadowDemon"
+    "GameSoundsFile"               "soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
+
+    "AbilityLayout"     "5"
+    "Ability1"        "xirgil_essence_split" 
+    "Ability2"        "xirgil_shadow_nova" 
+    "Ability3"        "xirgil_fractal_rush" 
+    "Ability4"        "xirgil_fractured_self"
+    "Ability5"         ""
+    "Ability6"         "xirgil_shatter"
+
+    "HasInventory"      "0"
+
+    "IsSummoned"                "1"
+    "CanBeDominated"            "0"
+    "ConsideredHero"            "1"
+
+    "SelectionGroup"               "shadows"
+
+    "AttackCapabilities"         "DOTA_UNIT_CAP_NO_ATTACK"
+    "CombatClassAttack"           "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"           "DOTA_COMBAT_CLASS_DEFEND_HERO"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "305"                 // Speed.
+    "MovementTurnRate"      "1.0"                 // Turning rate.
+    "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  // Small size because this hero likes to spam units.
+
+    // Shadows don't actually use mana, they subtract it from the main hero instead.
+    "StatusMana"            "1000"
+    "StatusManaRegen"       "500"
+
+    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "800"                  // Range of vision at night time.
+
+    "UseNeutralCreepBehavior"   "0"
+
+    "vscripts"                  "heroes/hero_xirgil/shadow.lua"
+
+}

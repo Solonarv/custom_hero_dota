@@ -1,0 +1,211 @@
+"valkyrie_soul_rip"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "visage_grave_chill"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCooldown"                "20 18 16 14"
+    "AbilityManaCost"                "80 75 70 65"
+    "AbilityDamage"                    "50 100 150 200"
+
+    "AbilityCastRange"                "600"
+    "AbilityCastPoint"                "0.3"
+    // "AbilityCastAnimation"            "ACT_DOTA_IDLE"
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_abaddon/abaddon_frost_debuff.vpcf"
+        "particle"  "particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "bonus_attack_range"            "450"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "buff_duration"        "5.0"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "damage_transfer"       "50 60 70 80"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "crit_multi"            "100"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "slow_duration"         "2.5 3.0 3.5 4.0"
+        }
+        "06"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "movement_speed_slow"   "-50"
+        }
+        "07"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "soul_duration"         "5 6 7 8"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName"    "modifier_soul_rip_preattack"
+            "Target"         "CASTER"
+            "Duration"        "%buff_duration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_soul_rip_preattack"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+            "IsDebuff"            "0"
+            "IsStunDebuff"        "0"
+    
+            // "EffectName"        "particle_name"
+            // "EffectAttachType"    "follow_origin"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multi"
+                "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"  "%bonus_attack_range"
+            }
+
+            "OnAttackStart"
+            {
+                "FireSound"
+                {
+                    "EffectName"    "Hero_SkeletonKing.CriticalStrike"
+                    "Target"         "CASTER"
+                }
+            }
+
+            "OnAttackLanded"
+            // "%attack_damage" is set to the damage value before mitigation
+            {
+                "RemoveModifier"
+                {
+                    "ModifierName"    "modifier_soul_rip_preattack"
+                    "Target"         "CASTER"
+                }
+
+                "ApplyModifier"
+                {
+                    "ModifierName"    "modifier_soul_rip_slow"
+                    "Target"         "TARGET"
+                    "Duration"        "%slow_duration"
+                }
+
+                "Damage"
+                {
+                    "Target"        "TARGET"
+                    "Type"            "DAMAGE_TYPE_MAGICAL"
+                    "Damage"        "%AbilityDamage"
+                }
+
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_valkyrie/soul_rip.lua"
+                    "Function"        "CreateIllusion"
+                    "duration"       "%soul_duration"
+                    "soul_marker"    "modifier_soul_rip_soul_marker"
+                }
+            }
+        }
+
+        "modifier_soul_rip_slow"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "1"
+            "IsBuff"            "0"
+            "IsDebuff"            "1"
+            "IsStunDebuff"        "0"
+        
+            // "EffectName"        "particle_name"
+            // "EffectAttachType"    "follow_origin"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow" 
+            }
+        }
+
+        "modifier_soul_rip_soul_marker"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        
+            "StatusEffectName"      "particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+            "StatusEffectPriority"  "100"
+            
+            "States"
+            {
+                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
+                // "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
+
+            }
+
+            "OnTakeDamage"
+            // "%attack_damage" is set to the damage value after mitigation
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_valkyrie/soul_rip.lua"
+                    "Function"        "TransferDamage"
+                    "transfer_pct"    "%damage_transfer"
+                    "damage"          "%attack_damage"
+                }
+            }
+
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_valkyrie/soul_rip.lua"
+                    "Function"        "RemoveSoul"
+                }
+            }
+        }
+        "modifier_soul_rip_target_marker"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        
+            "OnDeath"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_valkyrie/soul_rip.lua"
+                    "Function"        "RemoveSoul"
+                }
+            }
+        }
+    }
+}

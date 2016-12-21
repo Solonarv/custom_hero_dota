@@ -1,0 +1,97 @@
+"xirgil_shadow_nova"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "templar_assassin_refraction"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
+
+    "AbilityCooldown"                "12.0 10.0 8.0 6.0"
+    "AbilityManaCost"                "100 115 130 145"
+    "AbilityDamage"                 "80 120 160 200"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "repeat_damage_percent"            "20"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "radius"            "325"
+        }
+    }
+
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_xirgil/shadow_nova.lua"
+            "Function"        "ShadowNova"
+        }
+
+        "AttachEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+            "EffectAttachType"  "attach_origin"
+            "Target"            "CASTER"
+            "ControlPoints"
+            {
+                "01"    "%radius %radius %radius"
+            }
+        }
+
+        "FireSound"
+        {
+            "EffectName"    "hero_nevermore.shadowraze"
+            "Target"         "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_shadow_nova_dummy"
+        {
+            "IsHidden"            "1"
+    
+            "OnCreated"
+            {
+                "ActOnTargets"
+                {
+                    "Target"
+                    {
+                        "Center"        "CASTER"
+                        "Radius"        "%radius"
+                        "Teams"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                        "Type"          "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+                        "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    }
+                    "Action"
+                    {
+                        "RunScript"
+                        {
+                            "ScriptFile"            "heroes/hero_xirgil/shadow_nova.lua"
+                            "Function"              "ShadowNova_MarkAsVictim"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

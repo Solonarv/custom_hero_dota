@@ -1,0 +1,92 @@
+"xirgil_fractured_self"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "spectre_reality"
+    "MaxLevel"                         "1"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO"
+
+    "AbilityCastPoint"                "0.1"
+    "AbilityCastAnimation"            "ACT_IDLE"
+    "AbilityCastRange"                "600"
+
+    "AbilityCooldown"                "0.2 0.2 0.2 0.2"
+    "AbilityManaCost"                "0 0 0 0"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "actual_range"            "600"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
+            "Function"        "FracturedSelf"
+            "Target"        "POINT"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_fractured_self_dummy_phasing"
+        {
+            "IsHidden"            "1"
+    
+            "States"
+            {
+                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+        "modifier_fractured_self_illusion_nerf"
+        {
+            "IsHidden"            "0"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MISS_PERCENTAGE" "100"
+            }
+        }
+        "modifier_fractured_self_check"
+        {
+            "Passive"            "1"
+            "AllowIllusionDuplicate"     "1"
+            "IsHidden"            "1"
+            
+            "ThinkInterval"  "0.05"
+
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
+                    "Function"        "ApplyIllusionChange"
+                    "nerf"          "modifier_fractured_self_illusion_nerf"
+                }
+            }
+
+        }
+        "modifier_fractured_self_shadow_timer"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+        
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
+                    "Function"        "DeleteUnit"
+                }
+            }
+        }
+    }
+}

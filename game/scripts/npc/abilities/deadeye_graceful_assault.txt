@@ -1,0 +1,161 @@
+"deadeye_graceful_assault"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "deadeye_graceful_assault"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilityCooldown"                 "12"
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_3"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_INTEGER"
+            "chance"            "20"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "duration"        "4.0 4.75 5.5 6.25"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "bonus_attack_speed"    "10 15 20 25"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "bonus_movement_speed" "4 6 8 10"
+        }
+        "05"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "evade_chance"      "20 35 50 65"
+        }
+        "06"
+        {
+            "var_type"       "FIELD_FLOAT"
+            "duration_per_stack"    "3.5 4.0 4.5 5.0"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "active_bonus_movement_speed" "20 30 40 50"
+        }
+
+    }
+
+    "OnAbilityPhaseStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/graceful_assault.lua"
+            "Function"        "GracefulAssault_CheckCastable"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/graceful_assault.lua"
+            "Function"        "GracefulAssault"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_graceful_assault"
+        {
+            "IsPurgable"        "1"
+            "IsBuff"            "1"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%active_bonus_movement_speed"
+                "MODIFIER_PROPERTY_EVASION_CONSTANT"            "%evade_chance"
+            }
+
+            "OnCreated"
+            {
+                "RemoveModifier"
+                {
+                    "ModifierName"    "modifier_graceful_assault_passive"
+                    "Target"         "CASTER"
+                }
+            }
+            
+            "OnDestroy"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName"    "modifier_graceful_assault_passive"
+                    "Target"         "CASTER"
+                }
+            }
+        }
+        "modifier_graceful_assault_passive"
+        {
+            "Passive"            "1"
+            "IsHidden"            "1"
+            "IsPurgable"        "0"
+
+            "OnDealDamage"
+            {
+                "Random"
+                {
+                    "Chance"            "%chance"
+                    "OnSuccess"
+                    {
+                        "ApplyModifier"
+                        {
+                            "ModifierName"    "modifier_graceful_assault_proc"
+                            "Target"         "CASTER"
+                            "Duration"        "%duration"
+                        }
+                    }
+                }
+            }
+        }
+        "modifier_graceful_assault_proc"
+        {
+            "Passive"            "0"
+            "IsHidden"            "0"
+            "IsPurgable"        "1"
+            "IsBuff"            "1"
+
+            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_movement_speed" 
+            }
+
+            "OnCreated"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_deadeye/graceful_assault.lua"
+                    "Function"        "GracefulAssault_AddStack"
+                }
+            }
+
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_deadeye/graceful_assault.lua"
+                    "Function"        "GracefulAssault_RemoveStack"
+                }
+            }
+        }
+    }
+}

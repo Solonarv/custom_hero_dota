@@ -1,0 +1,8 @@
+"AddonInfo"
+{
+	"TeamCount"		"2"
+	"dota_700"
+	{
+		"MaxPlayers"		"10"
+	}
+}

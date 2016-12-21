@@ -1,0 +1,106 @@
+"deadeye_blink_arrow"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityTextureName"            "deadeye_blink_arrow"
+    "MaxLevel"                         "4"
+
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
+
+    "AbilityCastRange"                "700 800 900 1000"
+    "AbilityCastPoint"                "0.3"
+    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_2"
+    "AOERadius"                         "%radius"
+
+    "AbilityCooldown"                "20.0 17.0 14.0 11.0"
+    "AbilityManaCost"                "120 105 90 75"
+    "AbilityDamage"                 "75 150 225 300"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "radius"            "325"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "projectile_speed"             "5000"
+        }
+        // "03"
+        // {
+        //     "var_type"          "FIELD_FLOAT"
+        //     "illusion_duration"         "8.0"
+        // }
+        // "04"
+        // {
+        //     "var_type"      "FIELD_INTEGER"
+        //     "illusion_outgoing_damage"  "30 35 40 45"
+        // }
+        // "05"
+        // {
+        //     "var_type"      "FIELD_INTEGER"
+        //     "illusion_incoming_damage"  "400 350 300 250"
+        // }
+    }
+
+
+    "precache"
+    {
+        "particle"  "particles/dev/empty_particle.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+    }
+
+    "OnSpellStart"
+    {   
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/blink_arrow.lua"
+            "Function"        "BlinkArrow"
+            "Target"        "POINT"
+        }
+
+        
+    }
+
+    "OnProjectileFinish"
+    {
+        "FireSound"
+        {
+            "EffectName"    "hero_antimage.blink"
+            "Target"         "CASTER"
+        }
+
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_deadeye/blink_arrow.lua"
+            "Function"        "ConjureImage"
+            "Target"        "POINT"
+        }
+
+        "ActOnTargets"
+        {
+            "Target"
+            {
+                "Center"      "POINT"
+                "Radius"     "%radius"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        
+            "Action"    
+            {
+                "Damage"
+                {
+                    "Target"        "TARGET"
+                    "Type"            "DAMAGE_TYPE_MAGICAL"
+                    "Damage"        "%AbilityDamage"
+                }
+            }
+        }
+    }
+
+}

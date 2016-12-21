@@ -1,0 +1,91 @@
+"shielder_ghost_reaver_mana"
+{
+    "BaseClass"                     "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+    "AbilityTextureName"            "shielder_ghost_reaver_mana"
+    
+    "AbilityCastPoint"              "0.0" 
+    "AbilityCooldown"               "0.0"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "shift_rate"            "0.02"
+        }
+        "02"
+        {
+            "var_type"            "FIELD_FLOAT"
+            "think_interval"        "0.1"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "leech_pct"         "8 12 16 20"
+        }
+    }
+
+    "OnToggleOn"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_shielder/ghost_reaver.lua"
+            "Function"        "GR_Mana_On"
+        }
+    }
+
+    "OnToggleOff"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_shielder/ghost_reaver.lua"
+            "Function"        "GR_Mana_Off"
+        }
+    }
+
+    "OnUpgrade"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_shielder/ghost_reaver.lua"
+            "Function"        "GR_EqualizeLevels"
+        }
+    }
+
+    "OnOwnerDied"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_shielder/ghost_reaver.lua"
+            "Function"        "GR_Mana_Died"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_ghost_reaver_mana_counter"
+        {
+            "Passive"            "1"
+            "IsHidden"            "0"
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+        }
+        "modifier_ghost_reaver_mana_active"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+        
+            "ThinkInterval"  "%think_interval"
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "heroes/hero_shielder/ghost_reaver.lua"
+                    "Function"        "GR_Shift"
+                    "shift_amount"        "%shift_rate"
+                }
+            }
+        }
+    }
+}
