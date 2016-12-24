@@ -16,8 +16,8 @@ becomes radioactive.
 
 ### Flash Step
 
-Flicker blinks to the target location, leaving behind a trace at her old location.
-This ability uses a charge system.
+Flicker dashes to the target point at extreme speed, leaving behind a trace at her original location.
+
 
 |0.5 second cooldown| 50 mana     |
 |------------|-----|
@@ -41,8 +41,8 @@ each hero hit, and additional charges based on the number of non-heroes hit.
 
 ### Rapid Strike
 
-Flicker teleports to the target, performs a set number of attacks at greatly
-increased speed, then teleport back.
+Flicker teleports to a target and attacks it several times from different
+directions with greatly increased attack speed, then teleports back.
 
 | 15/13/11/9 second cooldown | 120 mana |
 |----|---|
@@ -52,7 +52,7 @@ increased speed, then teleport back.
 ### Recall
 
 Flicker instantly returns to the location of the newest trace, destroying
-it in the process. Cooldown and charges are shared with Flash Step.
+it in the process. Charges and cooldown are shared with Flash Step.
 
 |0.5 second cooldown | 50 mana|
 |---|---|
@@ -61,8 +61,8 @@ it in the process. Cooldown and charges are shared with Flash Step.
 
 Flicker taps into her eldritch nature, gaining increased cast range for
 Flash Step and Rapid Strike; increased radius for Stabilize; the ability
-to Recall without using Flash Step charges; and refreshing the cooldown
-of Rapid Strike and Stabilize.
+to Recall without using Flash Step charges; and refreshing the cooldowns
+on Rapid Strike and Stabilize.
 
 | 150/140/130 second cooldown | 225 mana |
 |------|-----|
