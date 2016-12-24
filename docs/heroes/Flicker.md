@@ -7,7 +7,7 @@ She is inspired by the character Flicker from the
 [Fall of Doc Future](http://docfuture.tumblr.com/post/82363551272/fall-of-doc-future-contents)
 web novel. Her power is extreme speed, achieved by being able to
 freely transfer momentum and entropy between herself and her
-environment. If has nothing to transfer momentum to, she can't
+environment. If she has nothing to transfer momentum to, she can't
 accelerate, slow down or change direction; if she has nothing to
 dump entropy to, she heats up from the rapid movement and eventually
 becomes radioactive.
@@ -72,21 +72,22 @@ of Rapid Strike and Stabilize.
 
 ## Ability Design breakdown
 
-In-game, I chose to represent her near-light-speed movement as Flash Step,
-a blink with an almost nonexistent cooldown, while representing the
-dangerous entropy buildup as a charge mechanic. This also serves to
-make the blink less overpowered, even though it's unlike her power in the
-books which lets her flit across half the world in a fraction of a second.
-To recover some of that long-distance swiftness, I've added the ability to
-Recall to her previous location after a blink; this also uses up a charge,
-and can be used multiple times to unwind multiple blinks in reverse order. 
+Flash Step, a blink with an almost nonexistent cooldown, represents
+Flicker's near-lightspeed movement; dangerous entropy buildup is
+translated to a charge mechanic. This also serves to make the blink less
+overpowered - even though it's a deviation from her power in the
+books, where she can flit across half the world in a fraction of a second.
+
+To recover some of that long-distance swiftness, she also has ability to
+Recall to her previous location after a blink, which she can use multiple
+times to 'rewind' multiple blinks.
 
 Flicker's momentum/entropy transfer ability naturally gave rise to her
 second ability, Stabilize. The more she catches in its radius, the more
 she's able to recover from Flash Step usage; but even if nothing is nearby,
 she can always do some transferring to the ground and gain at least some
 charges back. This is again different from the books, where she exclusively
-dumps entropy to inanimate objects like the ground and always needs to
+dumps entropy into inanimate objects (e.g. the ground) and always needs to
 push off of something when moving.
 
 Rapid Strike represents her primary combat tactic: use her speed to close
