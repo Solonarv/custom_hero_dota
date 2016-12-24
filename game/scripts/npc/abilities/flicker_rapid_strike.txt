@@ -30,7 +30,7 @@
         "02"
         {
             "var_type"            "FIELD_FLOAT"
-            "base_attack_time"        "1.0 0.8 0.8 0.6"
+            "base_attack_time"        "1.2 0.8 0.6 0.45"
         }
     }
 
