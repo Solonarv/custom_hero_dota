@@ -1,1 +1,6 @@
+# ignore map files, they're too big and easily regenerated since we only use the default map
 *.vmap
+# we can ignore compiled files... I think?
+*.v*_c
+# IDE-specific files
+.idea/

@@ -14,6 +14,7 @@ function flicker_flash_step:OnSpellStart()
     local diff = target - cLoc
 
     if diff:Length2D() > self:GetBlinkRange() then
+        --noinspection UnusedDef
         target = cLoc + diff:Normalized() * self:GetBlinkRange()
     end
 
@@ -34,8 +35,6 @@ end
 
 function flicker_flash_step:OnUpgrade()
     local caster = self:GetCaster()
-    local max_charges = self:GetMaxCharges()
-    local charge_replenish_time = self:GetChargeRecoveryTime()
 
     local recall = caster:FindAbilityByName("flicker_recall")
 
@@ -46,6 +45,8 @@ function flicker_flash_step:OnUpgrade()
 
     if not caster:HasModifier("modifier_flash_step_charges") then
         caster:AddNewModifier(caster, self, "modifier_flash_step_charges", {})
+    else
+        caster:FindModifierByName("modifier_flash_step_charges"):Update()
     end
 end
 
@@ -55,7 +56,6 @@ function flicker_flash_step:RestoreCharge(count, overmax)
     count = count or 1
 
     local max_charges = self:GetMaxCharges()
-    local charge_replenish_time = self:GetChargeRecoveryTime()
 
     local new_charges = count + caster:GetModifierStackCount("modifier_flash_step_charges", caster)
 
