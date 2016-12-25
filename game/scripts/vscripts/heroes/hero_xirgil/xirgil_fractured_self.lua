@@ -77,5 +77,8 @@ function xirgil_fractured_self:MakeShadow(duration)
     shadow:SetControllableByPlayer(caster:GetMainControllingPlayer(), true)
     local mod = shadow:FindModifierByName("modifier_fractured_self")
     mod:SetDuration(duration, true)
+    local xirgil = caster:GetOwnerEntity()
+    xirgil.shadows = xirgil.shadows or {}
+    table.insert(xirgil.shadows, shadow)
     return shadow
 end

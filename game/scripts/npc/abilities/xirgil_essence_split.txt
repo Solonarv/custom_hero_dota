@@ -1,6 +1,7 @@
 "xirgil_essence_split"
 {
-    "BaseClass"                     "ability_datadriven"
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "heroes/hero_xirgil/xirgil_essence_split.lua"
     "AbilityTextureName"            "phantom_lancer_doppelwalk"
     "MaxLevel"                         "4"
 
@@ -32,62 +33,13 @@
         }
         "04"
         {
-            "var_type"              "FIELD_FLOAT"
-            "shadow_incoming_damage"    "0.0"
-        }
-        "05"
-        {
-            "var_type"              "FIELD_FLOAT"
-            "shadow_outgoing_damage"    "-100.0"
-        }
-        "06"
-        {
             "var_type"          "FIELD_INTEGER"
             "shadow_count"      "3"
         }
-    }
-
-    "OnSpellStart"
-    {
-        "FireSound"
+        "05"
         {
-            "EffectName"    "Hero_FacelessVoid.TimeWalk"
-            "Target"         "CASTER"
-        }
-        "RunScript"
-        {
-            "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
-            "Function"      "EssenceSplit"
-            "Target"        "POINT"
-            "modifier"       "modifier_essence_split"
-        }
-    }
-
-    "Modifiers"
-    {
-        "modifier_essence_split"
-        {
-            "IsHidden"  "1"
-
-            // Use this if you want to achieve a "time walk" effect for heroes other than faceless
-            "EffectName"        "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
-            "EffectAttachType"  "follow_origin"
-            
-            "States"
-            {
-                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
-                "MODIFIER_STATE_STUNNED"                  "MODIFIER_STATE_VALUE_ENABLED"
-            }
-
-             "ThinkInterval"  "0.05"
-             "OnIntervalThink"
-            {
-                "RunScript"
-                {
-                    "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
-                    "Function"        "EssenceSplit_Motion"
-                }
-            }
+            "var_type"          "FIELD_FLOAT"
+            "think_interval"    "0.05"
         }
     }
 

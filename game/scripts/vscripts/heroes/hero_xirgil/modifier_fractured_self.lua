@@ -49,6 +49,7 @@ end
 
 function modifier_fractured_self:OnDestroy()
     if self.isShadow then
+        table.remove(self:GetParent():GetOwnerEntity().shadows, self:GetParent())
         self:GetParent():RemoveSelf()
     end
 end
