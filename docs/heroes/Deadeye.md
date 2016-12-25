@@ -9,7 +9,7 @@ Blink Arrow is again lifted straight from the game, though the illusion-creation
 Graceful Assault has no direct equivalent, though its effects thematically similar to PoE's effects of the same names.
  
 Endless Munitions, finally, is inspired by the Deadeye class' passive skill of the same name,
-which merely adds an extra projectile (to all attacks!) and increases area-of-effect radius. I've kept that theme, and added the ability to activate it and become able to spam Lightning Arrow, as befits the name.
+which merely adds an extra projectile (to all attacks!) and increases area-of-effect radius. I've kept that theme, and added the ability to activate it and become able to spam Lightning Arrow, as befits the name. 
 
 ## Abilities
 
