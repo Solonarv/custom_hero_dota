@@ -1,24 +1,27 @@
 # Niks, the Sword Dancer
 
-A tiny guy wielding a HUGE sword
+A tiny guy wielding a HUGE sword.
+
+~8cm tall, ~32cm beard, snow glasses  
+ ==> maybe Kunkka model??
 
 This hero's concept was made by my uncle. I merely wrote
 it down and helped him flesh out the abilities.
 
 ## Abilities
 
-### Spinning strike
+### Spinning Slam
  - start spinning sword around
  - speeds up over time
  - 10 spins
  - after 10th, sword slams into ground.
    - shockwave: stun & damage
 
-### Vault
+### Pinpoint Vault
  - pole-vault using the sword
  - deals damage to targets right on the sword tip
  
-### Strong attack
+### Brute Force
  - increased attack damage
  - reduced attack speed
 
@@ -35,9 +38,6 @@ it down and helped him flesh out the abilities.
    - Niks has high movement speed while disarmed
      - takes ~3 seconds to go pick up sword in a straight line
        at max range
- 
-
-### 
 
 ## General stats
 
