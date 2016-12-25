@@ -1,6 +1,6 @@
 # Djinn, the Fire Walker
 
-Base model: Shadowfiend Arcane
+Base model: Shadowfiend Arcana
 
 Melee
 
