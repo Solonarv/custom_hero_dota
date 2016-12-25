@@ -1,4 +1,4 @@
-# Flicker
+# Flicker, the Eldritch Speedster
 
 Flicker is an extremely mobile melee fighter based around
 speed and Flash Step's charge mechanic.
