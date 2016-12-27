@@ -1,2 +1,4 @@
 *.vmap
 .idea/
+content/maps/
+game/panorama/
