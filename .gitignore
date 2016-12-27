@@ -4,3 +4,5 @@
 *.v*_c
 # IDE-specific files
 .idea/
+content/maps/
+game/panorama/
