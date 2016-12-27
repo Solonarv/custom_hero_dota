@@ -90,7 +90,6 @@ function ShadowNova(event)
             damaged = true
         end
     end
-
 end
 
 function ShadowNova_MarkAsVictim(event)

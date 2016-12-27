@@ -1,6 +1,7 @@
 "xirgil_shadow_nova"
 {
-    "BaseClass"                     "ability_datadriven"
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "heroes/hero_xirgil/xirgil_shadow_nova.lua"
     "AbilityTextureName"            "templar_assassin_refraction"
     "MaxLevel"                         "4"
 
@@ -35,63 +36,6 @@
     {
         "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
         "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
-    }
-
-    "OnSpellStart"
-    {
-        "RunScript"
-        {
-            "ScriptFile"    "heroes/hero_xirgil/shadow_nova.lua"
-            "Function"        "ShadowNova"
-        }
-
-        "AttachEffect"
-        {
-            "EffectName"        "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-            "EffectAttachType"  "attach_origin"
-            "Target"            "CASTER"
-            "ControlPoints"
-            {
-                "01"    "%radius %radius %radius"
-            }
-        }
-
-        "FireSound"
-        {
-            "EffectName"    "hero_nevermore.shadowraze"
-            "Target"         "CASTER"
-        }
-    }
-
-    "Modifiers"
-    {
-        "modifier_shadow_nova_dummy"
-        {
-            "IsHidden"            "1"
-    
-            "OnCreated"
-            {
-                "ActOnTargets"
-                {
-                    "Target"
-                    {
-                        "Center"        "CASTER"
-                        "Radius"        "%radius"
-                        "Teams"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                        "Type"          "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-                        "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                    }
-                    "Action"
-                    {
-                        "RunScript"
-                        {
-                            "ScriptFile"            "heroes/hero_xirgil/shadow_nova.lua"
-                            "Function"              "ShadowNova_MarkAsVictim"
-                        }
-                    }
-                }
-            }
-        }
     }
 
 }
