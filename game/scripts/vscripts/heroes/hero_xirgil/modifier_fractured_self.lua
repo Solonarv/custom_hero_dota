@@ -19,7 +19,7 @@ function modifier_fractured_self:DeclareFunctions()
 end
 
 function modifier_fractured_self:OnCreated()
-    self.isShadow = self:GetParent() == self:GetOwner()
+    self.isShadow = false
 end
 
 function modifier_fractured_self:GetDisableAutoAttack()
@@ -49,7 +49,7 @@ end
 
 function modifier_fractured_self:OnDestroy()
     if self.isShadow then
-        table.remove(self:GetParent():GetOwnerEntity().shadows, self:GetParent())
+        table.remove(self.owner.shadows, self:GetParent())
         self:GetParent():RemoveSelf()
     end
 end

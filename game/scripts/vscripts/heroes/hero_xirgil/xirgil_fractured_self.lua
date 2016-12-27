@@ -12,9 +12,13 @@ LinkLuaModifier("modifier_fractured_self", "heroes/hero_xirgil/modifier_fracture
 
 function xirgil_fractured_self:OnSpellStart()
     local caster = self:GetCaster()
-    local vLoc = self:GetCursorTargetLocation()
+    local target = self:GetCursorTarget()
 
-    local target = self:FindClosestShadow(vLoc)
+    if target == nil then
+        local vLoc = self:GetCursorTargetLocation()
+
+        target = self:FindClosestShadow(vLoc)
+    end
 
     if target ~= nil then
         local targetpos = target:GetAbsOrigin()
@@ -29,7 +33,9 @@ function xirgil_fractured_self:OnSpellStart()
 end
 
 function xirgil_fractured_self:GetShadows()
-    return self:GetCaster():GetOwnerEntity().shadows
+    local owner =  self:GetCaster().owner
+    owner.shadows = owner.shadows or {}
+    return owner.shadows
 end
 
 function xirgil_fractured_self:GetSearchRadius()
@@ -37,7 +43,7 @@ function xirgil_fractured_self:GetSearchRadius()
 end
 
 function xirgil_fractured_self:FindClosestShadow(vLoc)
-    local allies = FindUnitsInRadius( hero:GetTeamNumber(),
+    local allies = FindUnitsInRadius( self:GetCaster():GetTeamNumber(),
                                     vLoc,
                                     nil,
                                     self:GetSearchRadius(),
@@ -45,7 +51,7 @@ function xirgil_fractured_self:FindClosestShadow(vLoc)
                                     DOTA_UNIT_TARGET_HERO,
                                     DOTA_UNIT_TARGET_FLAG_NONE,
                                     FIND_CLOSEST,
-                                    false )
+                                    false ) or {}
 
     local player = self:GetCaster():GetMainControllingPlayer()
     for _, v in pairs(allies) do
@@ -77,8 +83,10 @@ function xirgil_fractured_self:MakeShadow(duration)
     shadow:SetControllableByPlayer(caster:GetMainControllingPlayer(), true)
     local mod = shadow:FindModifierByName("modifier_fractured_self")
     mod:SetDuration(duration, true)
-    local xirgil = caster:GetOwnerEntity()
+    mod.isShadow = true
+    local xirgil = caster.owner
     xirgil.shadows = xirgil.shadows or {}
     table.insert(xirgil.shadows, shadow)
+    shadow.owner = xirgil
     return shadow
 end
