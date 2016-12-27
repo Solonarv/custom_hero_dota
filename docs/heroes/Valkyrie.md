@@ -22,9 +22,9 @@ Valkyrie empowers her next attack, giving it bonus range and damage. In addition
  | Movement speed slow | 50% |
  | Illusion duration | 5/6/7/8 seconds |
  
- ### Judgment
+### Judgment
  
- Valkyrie passes judgment on the target hero. If they've damaged a hero recently, they are healed; otherwise, they are damaged. Allies take reduced damage and enemies are healed for less.
+Valkyrie passes judgment on the target hero. If they've damaged a hero recently, they are healed; otherwise, they are damaged. Allies take reduced damage and enemies are healed for less.
  
   - Recently refers to the past 5 seconds.
  
