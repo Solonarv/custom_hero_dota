@@ -1,4 +1,14 @@
-# How to develop
+# Custom Hero Dota
+
+## What is this?
+
+Basically regular dota, but with all new, completely different heroes. See [docs/heroes](https://github.com/Solonarv/custom_hero_dota/tree/master/docs/heroes) for a list of them.
+
+## How to play
+
+Subscribe to the mod [here](https://steamcommunity.com/sharedfiles/filedetails/?id=713147757), install Dota 2 if you haven't already, and then start it just like any other custom game!
+
+## How to develop
 
 Get the Dota 2 Workshop Tools.
 
