@@ -82,3 +82,26 @@ channeling Incinerate.
 | Damage per second | 80/100/120 |
 | Cast range | 500 |
 | Buffer range | 300 |
+
+## Notes
+
+### Caldera
+
+Incinerate is kind of bad and doesn't fit the hero well. Alternative ult:
+
+Djinn projects his Inner Flame outward, creating a zone of heated air surrounded by a ring of fire. Allies in the zone gain cooldown reduction and benefit from Ember Might; while in the zone, the effect of Ember Might on Djinn is doubled. Enemies standing in the ring of fire take damage per second.
+
+| 130/120/110 second cooldown | 175/225/275 mana |
+|---|---|
+| Duration | 7/8/9 seconds |
+| Cooldown reduction | 10/13/16% |
+| Zone radius | 550 |
+| Ring width | 200 |
+| Cast range | 500 |
+| Damage per second | 80/100/120 |
+
+### Flame Path/Inner Flame/Ember Might
+
+The intended gameplay is that Djinn needs to choose between staying at low IF levels to spam Flame Path more, or staying at high IF levels to gain more dmaage from Ember Might.
+
+With current numbers, the choice isn't really there: FP is too cheap compared to IF regen, and Ember Might isn't strong enough to compensate for losing the high regen.
