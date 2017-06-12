@@ -2583,7 +2583,8 @@
 	}
 	"xirgil_essence_split"
 	{
-	    "BaseClass"                     "ability_datadriven"
+	    "BaseClass"                     "ability_lua"
+	    "ScriptFile"                    "heroes/hero_xirgil/xirgil_essence_split.lua"
 	    "AbilityTextureName"            "phantom_lancer_doppelwalk"
 	    "MaxLevel"                         "4"
 	
@@ -2615,62 +2616,13 @@
 	        }
 	        "04"
 	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_incoming_damage"    "0.0"
-	        }
-	        "05"
-	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_outgoing_damage"    "-100.0"
-	        }
-	        "06"
-	        {
 	            "var_type"          "FIELD_INTEGER"
 	            "shadow_count"      "3"
 	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "FireSound"
+	        "05"
 	        {
-	            "EffectName"    "Hero_FacelessVoid.TimeWalk"
-	            "Target"         "CASTER"
-	        }
-	        "RunScript"
-	        {
-	            "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
-	            "Function"      "EssenceSplit"
-	            "Target"        "POINT"
-	            "modifier"       "modifier_essence_split"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_essence_split"
-	        {
-	            "IsHidden"  "1"
-	
-	            // Use this if you want to achieve a "time walk" effect for heroes other than faceless
-	            "EffectName"        "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
-	            "EffectAttachType"  "follow_origin"
-	            
-	            "States"
-	            {
-	                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_STUNNED"                  "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	
-	             "ThinkInterval"  "0.05"
-	             "OnIntervalThink"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/essence_split.lua"
-	                    "Function"        "EssenceSplit_Motion"
-	                }
-	            }
+	            "var_type"          "FIELD_FLOAT"
+	            "think_interval"    "0.05"
 	        }
 	    }
 	
@@ -2807,7 +2759,8 @@
 	}
 	"xirgil_fractured_self"
 	{
-	    "BaseClass"                     "ability_datadriven"
+	    "BaseClass"                     "ability_lua"
+	    "ScriptFile"                "heroes/hero_xirgil/xirgil_fractured_self.lua"
 	    "AbilityTextureName"            "spectre_reality"
 	    "MaxLevel"                         "1"
 	
@@ -2817,83 +2770,17 @@
 	
 	    "AbilityCastPoint"                "0.1"
 	    "AbilityCastAnimation"            "ACT_IDLE"
-	    "AbilityCastRange"                "600"
+	    "AbilityCastRange"                "0"
 	
-	    "AbilityCooldown"                "0.2 0.2 0.2 0.2"
-	    "AbilityManaCost"                "0 0 0 0"
+	    "AbilityCooldown"                "0.2"
+	    "AbilityManaCost"                "0"
 	
 	    "AbilitySpecial"
 	    {
 	        "01"
 	        {
-	            "var_type"            "FIELD_INTEGER"
-	            "actual_range"            "600"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "RunScript"
-	        {
-	            "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
-	            "Function"        "FracturedSelf"
-	            "Target"        "POINT"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_fractured_self_dummy_phasing"
-	        {
-	            "IsHidden"            "1"
-	    
-	            "States"
-	            {
-	                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	        }
-	        "modifier_fractured_self_illusion_nerf"
-	        {
-	            "IsHidden"            "0"
-	        
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_MISS_PERCENTAGE" "100"
-	            }
-	        }
-	        "modifier_fractured_self_check"
-	        {
-	            "Passive"            "1"
-	            "AllowIllusionDuplicate"     "1"
-	            "IsHidden"            "1"
-	            
-	            "ThinkInterval"  "0.05"
-	
-	            "OnIntervalThink"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
-	                    "Function"        "ApplyIllusionChange"
-	                    "nerf"          "modifier_fractured_self_illusion_nerf"
-	                }
-	            }
-	
-	        }
-	        "modifier_fractured_self_shadow_timer"
-	        {
-	            "Passive"            "0"
-	            "IsHidden"            "1"
-	            "IsDebuff"            "0"
-	        
-	            "OnDestroy"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/fractured_self.lua"
-	                    "Function"        "DeleteUnit"
-	                }
-	            }
+	            "var_type"              "FIELD_INTEGER"
+	            "search_radius"         "75"
 	        }
 	    }
 	}
@@ -2907,7 +2794,8 @@
 	}
 	"xirgil_shadow_nova"
 	{
-	    "BaseClass"                     "ability_datadriven"
+	    "BaseClass"                     "ability_lua"
+	    "ScriptFile"                    "heroes/hero_xirgil/xirgil_shadow_nova.lua"
 	    "AbilityTextureName"            "templar_assassin_refraction"
 	    "MaxLevel"                         "4"
 	
@@ -2942,63 +2830,6 @@
 	    {
 	        "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
 	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "RunScript"
-	        {
-	            "ScriptFile"    "heroes/hero_xirgil/shadow_nova.lua"
-	            "Function"        "ShadowNova"
-	        }
-	
-	        "AttachEffect"
-	        {
-	            "EffectName"        "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-	            "EffectAttachType"  "attach_origin"
-	            "Target"            "CASTER"
-	            "ControlPoints"
-	            {
-	                "01"    "%radius %radius %radius"
-	            }
-	        }
-	
-	        "FireSound"
-	        {
-	            "EffectName"    "hero_nevermore.shadowraze"
-	            "Target"         "CASTER"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_shadow_nova_dummy"
-	        {
-	            "IsHidden"            "1"
-	    
-	            "OnCreated"
-	            {
-	                "ActOnTargets"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"        "CASTER"
-	                        "Radius"        "%radius"
-	                        "Teams"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	                        "Type"          "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-	                        "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	                    }
-	                    "Action"
-	                    {
-	                        "RunScript"
-	                        {
-	                            "ScriptFile"            "heroes/hero_xirgil/shadow_nova.lua"
-	                            "Function"              "ShadowNova_MarkAsVictim"
-	                        }
-	                    }
-	                }
-	            }
-	        }
 	    }
 	
 	}

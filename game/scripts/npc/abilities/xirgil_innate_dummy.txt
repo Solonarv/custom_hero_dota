@@ -1,8 +1,0 @@
-"xirgil_innate_dummy"
-{
-    "BaseClass"                     "ability_datadriven"
-    "AbilityTextureName"            "xirgil_innate_dummy"
-    "MaxLevel"                         "1"
-
-    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_HIDDEN"
-}
