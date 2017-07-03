@@ -25,27 +25,31 @@ function modifier_rapid_strike:CheckState()
 end
 
 function modifier_rapid_strike:OnCreated(kv)
-    self.target = self:GetParent().rapid_strike_target
-    self.attacks = 0
-    self.old_loc = self:GetParent():GetAbsOrigin()
-    self:Teleport()
-    self:GetParent():MoveToTargetToAttack(self.target)
-    --self:StartIntervalThink(1 / self:GetParent():GetAttacksPerSecond())
+    if IsServer() then
+        self.target = self:GetParent().rapid_strike_target
+        self.attacks = 0
+        self.old_loc = self:GetParent():GetAbsOrigin()
+        self:Teleport()
+        self:GetParent():MoveToTargetToAttack(self.target)
+        --self:StartIntervalThink(1 / self:GetParent():GetAttacksPerSecond())
+    end
 end
 
 function modifier_rapid_strike:OnAttackLanded(kv)
-    if kv.attacker == self:GetParent() then
-        self.attacks = self.attacks + 1
-        if self.attacks < self:GetAbility():GetAttackCount() then
-            self:Teleport()
-        else
-            self:GetParent():RemoveModifierByNameAndCaster("modifier_rapid_strike", self:GetCaster())
-        end
+    if IsServer() then
+        if kv.attacker == self:GetParent() then
+            self.attacks = self.attacks + 1
+            if self.attacks < self:GetAbility():GetAttackCount() then
+                self:Teleport()
+            else
+                self:GetParent():RemoveModifierByNameAndCaster("modifier_rapid_strike", self:GetCaster())
+            end
 
-        if self.attacks < self:GetAbility():GetAttackCount() - 1 then
-            self:StartIntervalThink(1 / self:GetParent():GetAttacksPerSecond())
-        end
+            if self.attacks < self:GetAbility():GetAttackCount() - 1 then
+                self:StartIntervalThink(1 / self:GetParent():GetAttacksPerSecond())
+            end
 
+        end
     end
 end
 
@@ -68,9 +72,9 @@ function modifier_rapid_strike:OnDestroy()
 
     if IsServer() then
         FindClearSpaceForUnit(caster, self.old_loc, false)
-    end
 
-    caster:Stop()
+        caster:Stop()
+    end
 
     caster.rapid_strike_target = nil
 end

@@ -1,5 +1,269 @@
 "DOTAAbilities"
 {
+	"ailil_rime_breath"
+	{
+	        "BaseClass"				"ability_datadriven"
+	        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT"
+	        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	        "AbilityTextureName"			"ailil_rime_breath"
+	
+	        // Note: should switch to using blue flames from Siltbreaker/Trial of Gallaron maybe
+	        "precache"
+	        {
+	            "soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+	            "particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+	        }
+	
+	        "AbilityCastRange"				"700"
+	        "AbilityCastPoint"				"0.45 0.45 0.45"
+	
+	        "AbilityManaCost"               "90 100 110 120"
+	        "AbilityCooldown"               "14 13 12 11"
+	
+	        "AbilityDamage"                 "80 140 200 260"
+	
+	        "AbilitySpecial"
+	        {
+	                "01"
+	                {
+	                    "var_type"				"FIELD_INTEGER"
+	                    "start_radius"			"150"
+	                }
+	                "02"
+	                {
+	                    "var_type"				"FIELD_INTEGER"
+	                    "end_radius"			"250"
+	                }
+	                "03"
+	                {
+	                    "var_type"				"FIELD_INTEGER"
+	                    "range"					"800"
+	                }
+	                "04"
+	                {
+	                    "var_type"				"FIELD_INTEGER"
+	                    "speed"					"1050"
+	                }
+	                "05"
+	                {
+	                    "var_type"              "FIELD_INTEGER"
+	                    "movement_slow_pct"     "-20 -25 -30 -35"
+	                }
+	                "06"
+	                {
+	                    "var_type"              "FIELD_INTEGER"
+	                    "attack_slow_pct"       "-20 -25 -30 -35"
+	                }
+	                "07"
+	                {
+	                    "var_type"              "FIELD_FLOAT"
+	                    "duration"              "5.0"
+	                }
+	        }
+	
+	        "OnSpellStart"
+	        {
+	                "LinearProjectile"
+	                {
+	                    "Target" "POINT"
+	                    "EffectName" "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+	                    "MoveSpeed" "%speed"
+	                    "StartRadius" "%start_radius"
+	                    "StartPosition" "attach_origin"
+	                    "EndRadius" "%end_radius"
+	                    "FixedDistance" "%range"
+	                    "TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                    "TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
+	                    "TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
+	                    "HasFrontalCone" "1"
+	                    "ProvidesVision" "0"
+	                }
+	                "FireSound"
+	                {
+	                    "EffectName" "Hero_DragonKnight.BreathFire"
+	                    "Target" "CASTER"
+	                }
+	        }
+	
+	        "OnProjectileHitUnit"
+	        {
+	                "DeleteOnHit" "0"
+	
+	                "ApplyModifier"
+	                {
+	                    "ModifierName"	"modifier_rime_breath_slow"
+	                    "Target" 		"TARGET"
+	                    "Duration"		"%duration"
+	                }
+	
+	                "Damage"
+	                {
+	                    "Target" "TARGET"
+	                    "Type" "DAMAGE_TYPE_MAGICAL"
+	                    "Damage" "%AbilityDamage"
+	                }
+	        }
+	
+	        "Modifiers"
+	        {
+	            "modifier_rime_breath_slow"
+	            {
+	                "IsDebuff"      "1"
+	
+	                "Properties"
+	                {
+	                    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow_pct"
+	                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%movement_slow_pct"
+	                }
+	            }
+	        }
+	}
+	"ailil_winters_arrow"
+	{
+	        "BaseClass"         "ability_datadriven"
+	        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+	        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+	    	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	    	"AbilityTextureName"			"drow_ranger_frost_arrows"
+	
+	    	"AbilityCastRange"				"600"
+	    	"AbilityCastPoint"				"0.0"
+	
+	    	"AbilityCooldown"				"0"
+	        "AbilityDuration"				"10.0"
+	
+	        "AbilityManaCost"               "15"
+	
+	        "AbilityDamage"                 "15 20 25 30"
+	        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+	
+	        "AbilitySpecial"
+	        {
+	            "01"
+	            {
+	                "var_type"      "FIELD_INTEGER"
+	                "movement_speed_lost" "-4 -6 -8 -10"
+	            }
+	            "02"
+	            {
+	                "var_type"      "FIELD_INTEGER"
+	                "movement_speed_gained" "4 6 8 10"
+	            }
+	            "03"
+	            {
+	                "var_type"      "FIELD_INTEGER"
+	                "max_stacks"        "5"
+	            }
+	        }
+	
+	        "precache"
+	        {
+	        		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+	        		"particle"				"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+	        		"particle"				"particles/generic_gameplay/generic_slowed_cold.vpcf"
+	        }
+	
+	        "Modifiers"
+	        	{
+	        		"modifier_winters_arrow_caster"
+	        		{
+	        			"Passive"               		"1"
+	        			"IsHidden"						"1"
+	        			"IsPurgable"					"0"
+	
+	        			"Orb"
+	        			{
+	        				"Priority"					"DOTA_ORB_PRIORITY_ABILITY"
+	        				"ProjectileName"			"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+	        				"CastAttack"				"1"
+	        			}
+	
+	        			"OnOrbFire"
+	        			{
+	        				"SpendMana"
+	        				{
+	        					"Mana"					"%AbilityManaCost"
+	        				}
+	        				"FireSound"
+	        				{
+	        					"EffectName"			"Hero_DrowRanger.FrostArrows"
+	        					"Target"				"CASTER"
+	        				}
+	        			}
+	
+	        			"OnOrbImpact"
+	        			{
+	        			    "Damage"
+	        			    {
+	        			        "Target"    "TARGET"
+	        			        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        			        "Damage"    "%AbilityDamage"
+	        			    }
+	        				"ApplyModifier"
+	        				{
+	        					"Target"
+	        					{
+	        						"Center"			"TARGET"
+	        						"Type"				"DOTA_UNIT_TARGET_BASIC"
+	        					}
+	        					"ModifierName"			"modifier_winters_arrow_slow"
+	        					"Duration"				"%AbilityDuration"
+	        				}
+	
+	        				"ApplyModifier"
+	        				{
+	        					"Target"
+	        					{
+	        						"Center"			"TARGET"
+	        						"Type"				"DOTA_UNIT_TARGET_HERO"
+	        					}
+	        					"ModifierName"			"modifier_frost_arrows_slow"
+	        					"Duration"				"%AbilityDuration"
+	        				}
+	        			}
+	        		}
+	
+	        		"modifier_winters_arrow_slow"
+	        		{
+	        			"IsHidden"						"0"
+	        			"IsDebuff"                      "1"
+	
+	        			"EffectName"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
+	
+	        			"Properties"
+	        			{
+	        				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movement_speed_lost"
+	        			}
+	
+	        			"Attributes"            "MODIFIER_ATTRIBUTE_MULTIPLE"
+	
+	        			"OnCreated"
+	        			{
+	        			    "ApplyModifier"
+	        			    {
+	        			        "Target"    "CASTER"
+	        			        "ModifierName"  "modifier_winters_arrow_speed"
+	        			        "Duration"      "%AbilityDuration"
+	        			    }
+	        			}
+	        		}
+	
+	        		"modifier_winters_arrow_speed"
+	        		{
+	        		    "IsHidden"          "0"
+	        		    "Properties"
+	        		    {
+	        		        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_speed_gained"
+	        		    }
+	
+	        		    "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+	        		}
+	        	}
+	}
 	"deadeye_blink_arrow"
 	{
 	    "BaseClass"                     "ability_datadriven"
@@ -2580,388 +2844,5 @@
 	            }
 	        }
 	    }
-	}
-	"xirgil_essence_split"
-	{
-	    "BaseClass"                     "ability_lua"
-	    "ScriptFile"                    "heroes/hero_xirgil/xirgil_essence_split.lua"
-	    "AbilityTextureName"            "phantom_lancer_doppelwalk"
-	    "MaxLevel"                         "4"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT"
-	
-	    "AbilityCastPoint"                "0.1"
-	    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
-	    "AbilityCastRange"                "0"
-	
-	    "AbilityCooldown"                "20 16 12 8"
-	    "AbilityManaCost"                "130 125 120 115"
-	
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"            "FIELD_FLOAT"
-	            "duration"            "2.5 3.0 3.5 4.0"
-	        }
-	        "02"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "dash_range"        "600"
-	        }
-	        "03"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "speed"             "3000"
-	        }
-	        "04"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "shadow_count"      "3"
-	        }
-	        "05"
-	        {
-	            "var_type"          "FIELD_FLOAT"
-	            "think_interval"    "0.05"
-	        }
-	    }
-	
-	    "precache"
-	    {
-	        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
-	        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_time_walk_preimage.vpcf"
-	        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_time_walk_slow.vpcf"
-	        "particle"          "particles/units/heroes/hero_faceless_void/faceless_void_chrono_speed.vpcf"
-	    }
-	}
-	"xirgil_fractal_rush"
-	{
-	    "BaseClass"                     "ability_datadriven"
-	    "AbilityTextureName"            "phantom_lancer_phantom_edge"
-	    "MaxLevel"                         "4"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
-	    "AOERadius"                         "%gather_range"
-	
-	    "AbilityCastPoint"                "0.1"
-	    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
-	    "AbilityCastRange"                "400"
-	
-	    "AbilityCooldown"                "18 15 12 9"
-	    "AbilityManaCost"                "100 110 120 130"
-	    "AbilityDamage"                 "20 26 32 38"
-	
-	    "precache"
-	    {
-	        "particle"  "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror.vpcf"
-	    }
-	
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"            "FIELD_FLOAT"
-	            "duration"            "3.0 4.0 5.0 6.0"
-	        }
-	        "02"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "gather_range"        "1300"
-	        }
-	        "03"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "shadow_threshold"      "1 2 3 4"
-	        }
-	        "04"
-	        {
-	            "var_type"          "FIELD_FLOAT"
-	            "travel_time"       "0.8"
-	        }
-	        "05"
-	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_incoming_damage"    "0.0"
-	        }
-	        "06"
-	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_outgoing_damage"    "-100.0"
-	        }
-	        "07" 
-	        {
-	            "var_type"              "FIELD_INTEGER"
-	            "damage_width"          "250"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "ActOnTargets"
-	        {
-	            "Target"
-	            {
-	                "Center"                "POINT"
-	                "Radius"                "%gather_range"
-	                "Teams"                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	                "Types"                 "DOTA_UNIT_TARGET_HERO"
-	            }
-	
-	            "Action"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
-	                    "Function"  "CheckUnits"    
-	                }
-	            }
-	        }
-	
-	        "RunScript"
-	        {
-	            "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
-	            "Function"        "FractalRush"
-	            "Target"        "POINT"
-	            "modifier"      "modifier_fractal_rush"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_fractal_rush"
-	        {
-	            "IsHidden"  "1"
-	            
-	            "States"
-	            {
-	                "MODIFIER_STATE_NO_UNIT_COLLISION"        "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "0" 
-	            }
-	
-	             "ThinkInterval"  "0.05"
-	             "OnIntervalThink"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/fractal_rush.lua"
-	                    "Function"        "FractalRush_Think"
-	                }
-	            }
-	        }
-	    }
-	}
-	"xirgil_fractured_self"
-	{
-	    "BaseClass"                     "ability_lua"
-	    "ScriptFile"                "heroes/hero_xirgil/xirgil_fractured_self.lua"
-	    "AbilityTextureName"            "spectre_reality"
-	    "MaxLevel"                         "1"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO"
-	
-	    "AbilityCastPoint"                "0.1"
-	    "AbilityCastAnimation"            "ACT_IDLE"
-	    "AbilityCastRange"                "0"
-	
-	    "AbilityCooldown"                "0.2"
-	    "AbilityManaCost"                "0"
-	
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"              "FIELD_INTEGER"
-	            "search_radius"         "75"
-	        }
-	    }
-	}
-	"xirgil_innate_dummy"
-	{
-	    "BaseClass"                     "ability_datadriven"
-	    "AbilityTextureName"            "xirgil_innate_dummy"
-	    "MaxLevel"                         "1"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_HIDDEN"
-	}
-	"xirgil_shadow_nova"
-	{
-	    "BaseClass"                     "ability_lua"
-	    "ScriptFile"                    "heroes/hero_xirgil/xirgil_shadow_nova.lua"
-	    "AbilityTextureName"            "templar_assassin_refraction"
-	    "MaxLevel"                         "4"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	    "AbilityUnitDamageType"            "DAMAGE_TYPE_MAGICAL"
-	
-	    "AbilityCastPoint"                "0.1"
-	    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
-	
-	    "AbilityCooldown"                "12.0 10.0 8.0 6.0"
-	    "AbilityManaCost"                "100 115 130 145"
-	    "AbilityDamage"                 "80 120 160 200"
-	
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"            "FIELD_INTEGER"
-	            "repeat_damage_percent"            "20"
-	        }
-	        "02"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "radius"            "325"
-	        }
-	    }
-	
-	
-	    "precache"
-	    {
-	        "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
-	    }
-	
-	}
-	"xirgil_shatter"
-	{
-	    "BaseClass"                     "ability_datadriven"
-	    "AbilityTextureName"            "naga_siren_mirror_image"
-	    "MaxLevel"                         "3"
-	    "FightRecapLevel"                    "2"
-	
-	    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
-	
-	    "AbilityCastPoint"                "0.1"
-	    "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_1"
-	
-	    "AbilityCooldown"                "120 110 100"
-	    "AbilityManaCost"                "275 325 375"
-	
-	    "AbilitySpecial"
-	    {
-	        "01"
-	        {
-	            "var_type"            "FIELD_INTEGER"
-	            "gather_range"            "1300"
-	        }
-	        "02"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "radius"            "625"
-	        }
-	        "03"
-	        {
-	            "var_type"          "FIELD_INTEGER"
-	            "shadow_count"      "4 8 12"
-	        }
-	        "04"
-	        {
-	            "var_type"          "FIELD_FLOAT"
-	            "untargetable_duration" "0.1"
-	        }
-	        "05"
-	        {
-	            "var_type"          "FIELD_FLOAT"
-	            "duration"          "12"
-	        }
-	        "06"
-	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_incoming_damage"    "0.0"
-	        }
-	        "07"
-	        {
-	            "var_type"              "FIELD_FLOAT"
-	            "shadow_outgoing_damage"    "-100.0"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	        "FireSound"
-	        {
-	            "EffectName" "Hero_PhantomLancer.Doppelganger.Cast"
-	            "Target"    "CASTER"
-	        }
-	        
-	        "ActOnTargets"
-	        {
-	            "Target"
-	            {
-	                "Center"                "CASTER"
-	                "Radius"                "%gather_range"
-	                "Teams"                 "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	                "Types"                 "DOTA_UNIT_TARGET_HERO"
-	            }
-	
-	            "Action"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
-	                    "Function"  "CheckUnits"    
-	                }
-	            }
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_shatter"
-	        {           
-	            "IsHidden"  "0"
-	
-	            "States"
-	            {
-	                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_OUT_OF_GAME"    "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-	                "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	
-	            "OnCreated"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
-	                    "Function"  "ShatterStart"
-	                }
-	            }
-	
-	            "OnDestroy"
-	            {
-	                "FireSound"
-	                {
-	                    "EffectName"    "Hero_PhantomLancer.Doppelganger.Appear"
-	                    "Target"    "CASTER"
-	                }
-	
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_xirgil/shatter.lua"
-	                    "Function"  "ShatterEnd"                   
-	                }                   
-	            }               
-	        }
-	    }
-	
-	    "precache"
-	    {
-	        "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
-	    }
-	
 	}
 }

@@ -1,5 +1,65 @@
 "DOTAHeroes"
 {
+	"npc_custom_hero_ailil"
+	  {
+	    "AbilityLayout"     "4"
+	    "override_hero"     "npc_dota_hero_windrunner"
+	    "SoundSet"          "0"
+	    "Ability1"        "ailil_winters_arrow"
+	    "Ability2"        "ailil_rime_breath"
+	    "Ability3"        "ailil_armor"
+	    "Ability4"        ""
+	    "Ability5"         ""
+	    "Ability6"         "ailil_deep_freeze"
+	    "Ability7"        "attribute_bonus"
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "0.71"                 // Physical protection.
+	    "MagicalResistance"       "25"                 // Magical protection (percentage).
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageMin"     "27"                   // Damage range min.
+	    "AttackDamageMax"     "37"                   // Damage range max.
+	    "AttackRange"         "600"
+	    "ProjectileModel"            "particles/units/heroes/hero_drow/drow_base_attack.vpcf"
+	    "ProjectileSpeed"            "1400"
+	
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+	    "AttributeBaseStrength"   "19"                   // Base strength
+	    "AttributeStrengthGain"   "2.5"                   // Strength bonus per level.
+	    "AttributeBaseIntelligence" "19"                   // Base intelligence
+	    "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
+	    "AttributeBaseAgility"    "23"                   // Base agility
+	    "AttributeAgilityGain"    "3.2"                   // Agility bonus per level.
+	
+	    "BountyXP"          "0"                 // Experience earn.
+	    "BountyGoldMin"       "0"                   // Gold earned min.
+	    "BountyGoldMax"       "0"                   // Gold earned max.
+	
+	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "305"                 // Speed.
+	    "MovementTurnRate"      "1.0"                 // Turning rate.
+	
+	    "StatusHealth"        "200"                 // Base health.
+	    "StatusHealthRegen"     "0.25"                 // Health regeneration rate.
+	    "StatusMana"        "0"                   // Base mana.
+	    "StatusManaRegen"     "0"                 // Mana regeneration rate.
+	
+	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "800"                  // Range of vision at night time.
+	
+	  }
 	"npc_custom_hero_deadeye"
 	  {
 	    "AbilityLayout"     "4"
@@ -296,66 +356,5 @@
 	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
 	    "VisionNighttimeRange"    "800"                  // Range of vision at night time.
 	
-	  }
-	"npc_custom_hero_xirgil"
-	  {
-	    "AbilityLayout"     "5"
-	    "override_hero"     "npc_dota_hero_shadow_demon"
-	    "SoundSet"          "0" 
-	    "Ability1"        "xirgil_essence_split" 
-	    "Ability2"        "xirgil_shadow_nova" 
-	    "Ability3"        "xirgil_fractal_rush" 
-	    "Ability4"        "xirgil_fractured_self"
-	    "Ability5"         ""
-	    "Ability6"         "xirgil_shatter"
-	    "Ability7"        "attribute_bonus"
-	    "Ability8"        ""
-	    "Ability9"        ""
-	    "Ability10"       ""
-	    "Ability11"       ""
-	    "Ability12"       ""
-	    "Ability13"       ""
-	    "Ability14"       ""
-	    "Ability15"       ""
-	    "Ability16"       ""
-	
-	    "ArmorPhysical"       "3.28"                 // Physical protection.
-	    "MagicalResistance"       "25"                 // Magical protection (percentage).
-	
-	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"     "28"                   // Damage range min.
-	    "AttackDamageMax"     "34"                   // Damage range max.
-	    "AttackRange"         "150"
-	
-	    "AttributePrimary"      "DOTA_ATTRIBUTE_INTELLECT"
-	    "AttributeBaseStrength"   "17"                   // Base strength
-	    "AttributeStrengthGain"   "1.9"                   // Strength bonus per level.
-	    "AttributeBaseIntelligence" "20"                   // Base intelligence
-	    "AttributeIntelligenceGain" "2.6"                   // Intelligence bonus per level.
-	    "AttributeBaseAgility"    "12"                   // Base agility
-	    "AttributeAgilityGain"    "1.3"                   // Agility bonus per level.
-	
-	    "BountyXP"          "0"                 // Experience earn.
-	    "BountyGoldMin"       "0"                   // Gold earned min.
-	    "BountyGoldMax"       "0"                   // Gold earned max.
-	
-	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
-	    //"RingRadius"        "70"
-	
-	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
-	    "MovementSpeed"       "305"                 // Speed.
-	    "MovementTurnRate"      "1.0"                 // Turning rate.
-	    "BoundsHullName"            "DOTA_HULL_SIZE_SMALL"  // Small size because this hero likes to spam units.
-	
-	    "StatusHealth"        "200"                 // Base health.
-	    "StatusHealthRegen"     "0.25"                 // Health regeneration rate.
-	    "StatusMana"        "0"                   // Base mana.
-	    "StatusManaRegen"     "0"                 // Mana regeneration rate.
-	
-	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
-	    "VisionNighttimeRange"    "800"                  // Range of vision at night time.
-	
-	    // Just setup
-	    "vscripts"          "heroes/hero_xirgil/setup.lua"
 	  }
 }
