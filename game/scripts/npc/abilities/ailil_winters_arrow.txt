@@ -1,0 +1,143 @@
+"ailil_winters_arrow"
+{
+        "BaseClass"         "ability_datadriven"
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+    	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+    	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+    	"AbilityTextureName"			"drow_ranger_frost_arrows"
+
+    	"AbilityCastRange"				"600"
+    	"AbilityCastPoint"				"0.0"
+
+    	"AbilityCooldown"				"0"
+        "AbilityDuration"				"10.0"
+
+        "AbilityManaCost"               "15"
+
+        "AbilityDamage"                 "15 20 25 30"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "movement_speed_lost" "-4 -6 -8 -10"
+            }
+            "02"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "movement_speed_gained" "4 6 8 10"
+            }
+            "03"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "max_stacks"        "5"
+            }
+        }
+
+        "precache"
+        {
+        		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+        		"particle"				"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+        		"particle"				"particles/generic_gameplay/generic_slowed_cold.vpcf"
+        }
+
+        "Modifiers"
+        	{
+        		"modifier_winters_arrow_caster"
+        		{
+        			"Passive"               		"1"
+        			"IsHidden"						"1"
+        			"IsPurgable"					"0"
+
+        			"Orb"
+        			{
+        				"Priority"					"DOTA_ORB_PRIORITY_ABILITY"
+        				"ProjectileName"			"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+        				"CastAttack"				"1"
+        			}
+
+        			"OnOrbFire"
+        			{
+        				"SpendMana"
+        				{
+        					"Mana"					"%AbilityManaCost"
+        				}
+        				"FireSound"
+        				{
+        					"EffectName"			"Hero_DrowRanger.FrostArrows"
+        					"Target"				"CASTER"
+        				}
+        			}
+
+        			"OnOrbImpact"
+        			{
+        			    "Damage"
+        			    {
+        			        "Target"    "TARGET"
+        			        "Type"      "DAMAGE_TYPE_MAGICAL"
+        			        "Damage"    "%AbilityDamage"
+        			    }
+        				"ApplyModifier"
+        				{
+        					"Target"
+        					{
+        						"Center"			"TARGET"
+        						"Type"				"DOTA_UNIT_TARGET_BASIC"
+        					}
+        					"ModifierName"			"modifier_winters_arrow_slow"
+        					"Duration"				"%AbilityDuration"
+        				}
+
+        				"ApplyModifier"
+        				{
+        					"Target"
+        					{
+        						"Center"			"TARGET"
+        						"Type"				"DOTA_UNIT_TARGET_HERO"
+        					}
+        					"ModifierName"			"modifier_frost_arrows_slow"
+        					"Duration"				"%AbilityDuration"
+        				}
+        			}
+        		}
+
+        		"modifier_winters_arrow_slow"
+        		{
+        			"IsHidden"						"0"
+        			"IsDebuff"                      "1"
+
+        			"EffectName"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
+
+        			"Properties"
+        			{
+        				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movement_speed_lost"
+        			}
+
+        			"Attributes"            "MODIFIER_ATTRIBUTE_MULTIPLE"
+
+        			"OnCreated"
+        			{
+        			    "ApplyModifier"
+        			    {
+        			        "Target"    "CASTER"
+        			        "ModifierName"  "modifier_winters_arrow_speed"
+        			        "Duration"      "%AbilityDuration"
+        			    }
+        			}
+        		}
+
+        		"modifier_winters_arrow_speed"
+        		{
+        		    "IsHidden"          "0"
+        		    "Properties"
+        		    {
+        		        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_speed_gained"
+        		    }
+
+        		    "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+        		}
+        	}
+}
