@@ -10,7 +10,7 @@ function ChaosNova(event)
     caster:SetHealth(1)
     caster:SetMana(0)
 
-    damage = damage_pct * (life_lost + mana_lost)
+    local damage = damage_pct * (life_lost + mana_lost)
 
     local targets = FindUnitsInRadius(caster:GetTeamNumber(),
                                       caster:GetAbsOrigin(),
