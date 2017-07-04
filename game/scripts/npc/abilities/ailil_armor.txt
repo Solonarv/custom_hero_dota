@@ -1,0 +1,37 @@
+"ailil_armor"
+{
+        "BaseClass"     "ability_lua"
+        "ScriptFile"    "heroes/hero_ailil/ailil_armor.lua"
+        "AbilityTextureName"    "visage_gravekeepers_cloak"
+        "MaxLevel"              "4"
+
+        "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+        "AbilityCastPoint"                "0.1"
+        "AbilityCastAnimation"            "ACT_DOTA_CAST_ABILITY_3"
+
+        "AbilityCooldown"       "17 16 15 14"
+        "AbilityManaCost"       "80"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"      "FIELD_FLOAT"
+                "duration"    "7 8 9 10"
+            }
+            "02"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "instances"     "4 5 6 7"
+            }
+            "03"
+            {
+                "var_type"      "FIELD_INTEGER"
+                "damage_threshold"  "5"
+                // Same as TA Refraction
+            }
+        }
+
+}

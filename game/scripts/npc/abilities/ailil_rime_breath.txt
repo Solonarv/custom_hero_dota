@@ -12,7 +12,7 @@
         "precache"
         {
             "soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
-            "particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+            "particle"		"particles/units/heroes/hero_ailil/trap_breathe_fire.vpcf"
         }
 
         "AbilityCastRange"				"700"
@@ -67,7 +67,7 @@
                 "LinearProjectile"
                 {
                     "Target" "POINT"
-                    "EffectName" "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+                    "EffectName" "particles/units/heroes/hero_ailil/trap_breathe_fire.vpcf"
                     "MoveSpeed" "%speed"
                     "StartRadius" "%start_radius"
                     "StartPosition" "attach_origin"
