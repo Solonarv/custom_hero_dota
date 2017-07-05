@@ -1,0 +1,23 @@
+"djinn_ember_might"
+{
+    "BaseClass"     "ability_lua"
+    "ScriptFile"    "heroes/hero_djinn/djinn_ember_might.lua"
+    "AbilityTextureName"    "ember_spirit_sleight_of_fist"
+    "MaxLevel"          "4"
+
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "attack_per_10" "2.0 3.5 5.0 6.5"
+        }
+        "02"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "spellamp_per_10"   "0.6 0.9 1.2 1.5"
+        }
+    }
+}

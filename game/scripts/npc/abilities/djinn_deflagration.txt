@@ -1,0 +1,121 @@
+"djinn_deflagration"
+{
+    "BaseClass"				        "ability_datadriven"
+    "AbilityTextureName"			"invoker_sun_strike"
+    "MaxLevel"                      "4"
+
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_ALL"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+    "AbilityCastRange"				"%radius"
+    "AbilityCastPoint"				"0"
+
+    "AbilityCooldown"               "0"
+    "AbilityManaCost"               "0"
+
+    "AbilityDamage"                 "90 110 130 150"
+
+    "precache"
+    {
+        "soundfile"					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
+        "particle"							"particles/units/heroes/hero_djinn/djinn_deflagration_2.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "radius"            "700"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "damage_per_10"     "10 12 14 16"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "expansion_speed"        "700"
+        }
+        "04"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "ring_width"            "90"
+        }
+        "05"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "interval"              "0.1"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "FireSound"
+        {
+            "EffectName"		"Hero_Jakiro.Macropyre.Cast"
+            "Target"			"CASTER"
+        }
+        "RemoveModifier"
+        {
+            "ModifierName"          "modifier_intense_heat"
+            "Target"                "CASTER"
+        }
+        "CreateThinker"
+        {
+            "Target"                "CASTER"
+            "ModifierName"          "modifier_deflagration_thinker"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_deflagration_thinker"
+        {
+            "IsHidden"              "1"
+
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "Target"                "TARGET"
+                    "EffectName"            "particles/units/heroes/hero_djinn/djinn_deflagration_2.vpcf"
+                    "EffectAttachType"      "follow_origin"
+                    "EffectAttachType" "start_at_customorigin"
+                    "ControlPointEntities"
+                    {
+                        "TARGET"    "attach_origin" // Control Point 0
+                    }
+                }
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/hero_djinn/intense_heat.lua"
+                    "Function"          "DeflagrationSetup"
+                    "Target"            "TARGET"
+                    "damage"            "%AbilityDamage"
+                    "damage_mult"       "%flame_damage_mult"
+                    "radius"            "%radius"
+                    "ring_width"        "%ring_width"
+                    "ring_speed"        "%expansion_speed"
+                    "interval"          "%interval"
+                }
+            }
+
+            "ThinkInterval"             "%interval"
+            "OnIntervalThink"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/hero_djinn/intense_heat.lua"
+                    "Function"          "DeflagrationThinkerTick"
+                    "interval"          "%interval"
+                    "Target"            "TARGET"
+                }
+            }
+        }
+    }
+}

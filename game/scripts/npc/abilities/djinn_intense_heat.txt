@@ -1,0 +1,151 @@
+"djinn_intense_heat"
+{
+    "BaseClass"				        "ability_datadriven"
+    "AbilityTextureName"			"ember_spirit_flame_guard"
+    "MaxLevel"                      "4"
+
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_ALL"
+    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+
+    "AbilityCastRange"				"%radius"
+    "AbilityCastPoint"				"0.2"
+
+    "AbilityCooldown"               "20 18 16 14"
+    "AbilityManaCost"               "70 80 90 100"
+
+    "AbilityDamage"                 "50 65 80 95"
+    "AbilityDuration"               "%duration"
+
+    "precache"
+    {
+        "soundfile"							"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+        "particle"							"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+    }
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "radius"            "425"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "duration"          "5 7 9 11"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "bonus_flame_regen" "20 30 40 50"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "interval"          "0.2"
+        }
+        "05"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "damage_per_tick"   "10 13 16 19"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "FireSound"
+        {
+            "Target"						"CASTER"
+            "EffectName"					"Hero_EmberSpirit.FlameGuard.Cast"
+        }
+        "ApplyModifier"
+        {
+            "ModifierName"      "modifier_intense_heat"
+            "Target"            "CASTER"
+            "Duration"          "%duration"
+        }
+    }
+
+    "OnUpgrade"
+    {
+        "LevelUpAbility"
+        {
+            "Target"            "CASTER"
+            "AbilityName"       "djinn_deflagration"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_intense_heat"
+        {
+            "IsBuff"        "1"
+            "IsPurgable"    "1"
+            "IsHidden"      "0"
+
+            "Aura"          "modifier_intense_heat_burn"
+            "Aura_Radius"   "%radius"
+            "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Aura_Types"    "DOTA_UNIT_TARGET_ALL"
+            "Aura_Flags"    "DOTA_UNIT_TARGET_FLAG_NONE"
+
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "Target"				"TARGET"
+                    "EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+                    "EffectAttachType"		"start_at_customorigin"
+                    "ControlPointEntities"
+                    {
+                        "TARGET"			"attach_origin"
+                        "TARGET"			"attach_origin"
+                    }
+                }
+
+                "FireSound"
+                {
+                    "Target"				"TARGET"
+                    "EffectName"			"Hero_EmberSpirit.FlameGuard.Loop"
+                }
+
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/hero_djinn/intense_heat.lua"
+                    "Function"          "EnableDeflagration"
+                    "deflagration"      "djinn_deflagration"
+                }
+            }
+            "OnDestroy"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"        "heroes/hero_djinn/intense_heat.lua"
+                    "Function"          "DisableDeflagration"
+                    "deflagration"      "djinn_deflagration"
+                }
+            }
+        }
+        "modifier_intense_heat_burn"
+        {
+            "IsBuff"        "0"
+            "IsDebuff"      "1"
+            "IsPurgable"    "0"
+
+            "ThinkInterval" "%interval"
+            "OnIntervalThink"
+            {
+                "Damage"
+                {
+                    "Target"    "TARGET"
+                    "Type"      "DAMAGE_TYPE_MAGICAL"
+                    "Damage"    "%damage_per_tick"
+                }
+            }
+        }
+    }
+
+}

@@ -6,3 +6,6 @@
 .idea/
 content/maps/
 game/panorama/
+/game/server_log.txt
+addons/
+game/server_log.txt

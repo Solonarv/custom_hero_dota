@@ -1,0 +1,35 @@
+"djinn_inner_flame"
+{
+    "BaseClass"     "ability_lua"
+    "ScriptFile"    "heroes/hero_djinn/djinn_inner_flame.lua"
+
+    "MaxLevel"      "1"
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "AbilityTextureName"    "phoenix_sun_ray"
+
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "max_flame"     "100.0"
+        }
+        "02"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "regen_interval"    "0.1"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "regen_at_0"        "20.0"
+        }
+        "04"
+        {
+            "var_type"          "FIELD_FLOAT"
+            "regen_at_max"      "4.0"
+        }
+    }
+
+}
