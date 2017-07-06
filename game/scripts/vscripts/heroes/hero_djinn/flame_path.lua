@@ -25,6 +25,7 @@ function CreateFlamePatch(kv)
 
     local proj = ProjectileManager:CreateLinearProjectile({
         Ability = ability,
+        EffectName = kv.particle,
         vSpawnOrigin = point,
         fDistance = 64,
         fStartRadius = kv.radius,

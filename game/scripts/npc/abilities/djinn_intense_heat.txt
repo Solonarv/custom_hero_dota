@@ -99,11 +99,11 @@
                     "Target"				"TARGET"
                     "EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
                     "EffectAttachType"		"start_at_customorigin"
-                    "ControlPointEntities"
-                    {
-                        "TARGET"			"attach_origin"
-                        "TARGET"			"attach_origin"
-                    }
+                    //"ControlPointEntities"
+                    //{
+                    //    "TARGET"			"attach_origin"
+                    //    "TARGET"			"attach_origin"
+                    //}
                 }
 
                 "FireSound"
