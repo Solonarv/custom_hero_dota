@@ -11,8 +11,6 @@
     	"AbilityCastPoint"				"0.0"
 
     	"AbilityCooldown"				"0"
-        "AbilityDuration"				"10.0"
-
         "AbilityManaCost"               "15"
 
         "AbilityDamage"                 "15 20 25 30"
@@ -22,13 +20,13 @@
         {
             "01"
             {
-                "var_type"      "FIELD_INTEGER"
-                "movement_speed_lost" "-4 -6 -8 -10"
+                "var_type"      "FIELD_FLOAT"
+                "duration"      "10.0"
             }
             "02"
             {
                 "var_type"      "FIELD_INTEGER"
-                "movement_speed_gained" "4 6 8 10"
+                "movement_speed_stolen" "4 6 8 10"
             }
             "03"
             {
@@ -43,7 +41,19 @@
         		"particle"				"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
         		"particle"				"particles/generic_gameplay/generic_slowed_cold.vpcf"
         }
-
+        "OnUpgrade"
+        {
+            "RunScript"
+            {
+                "ScriptFile"        "heroes/hero_ailil/modifier_winters_arrow_speed.lua"
+                "Function"          "Setup"
+            }
+            "RunScript"
+            {
+                "ScriptFile"        "heroes/hero_ailil/modifier_winters_arrow_slow.lua"
+                "Function"          "Setup"
+            }
+        }
         "Modifiers"
         	{
         		"modifier_winters_arrow_caster"
@@ -80,64 +90,66 @@
         			        "Type"      "DAMAGE_TYPE_MAGICAL"
         			        "Damage"    "%AbilityDamage"
         			    }
-        				"ApplyModifier"
-        				{
-        					"Target"
-        					{
-        						"Center"			"TARGET"
-        						"Type"				"DOTA_UNIT_TARGET_BASIC"
-        					}
-        					"ModifierName"			"modifier_winters_arrow_slow"
-        					"Duration"				"%AbilityDuration"
-        				}
-
-        				"ApplyModifier"
-        				{
-        					"Target"
-        					{
-        						"Center"			"TARGET"
-        						"Type"				"DOTA_UNIT_TARGET_HERO"
-        					}
-        					"ModifierName"			"modifier_winters_arrow_slow"
-        					"Duration"				"%AbilityDuration"
-        				}
-        			}
-        		}
-
-        		"modifier_winters_arrow_slow"
-        		{
-        			"IsHidden"						"0"
-        			"IsDebuff"                      "1"
-
-        			"EffectName"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
-
-        			"Properties"
-        			{
-        				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movement_speed_lost"
-        			}
-
-        			"Attributes"            "MODIFIER_ATTRIBUTE_MULTIPLE"
-
-        			"OnCreated"
-        			{
         			    "ApplyModifier"
         			    {
-        			        "Target"    "CASTER"
-        			        "ModifierName"  "modifier_winters_arrow_speed"
-        			        "Duration"      "%AbilityDuration"
+        			        "ModifierName"      "modifier_winters_arrow_slow_hidden"
+        			        "Target"            "TARGET"
+        			        "Duration"          "%duration"
+        			    }
+        			    "ApplyModifier"
+        			    {
+        			        "ModifierName"      "modifier_winters_arrow_speed_hidden"
+        			        "Target"            "CASTER"
+        			        "Duration"          "%duration"
         			    }
         			}
         		}
-
-        		"modifier_winters_arrow_speed"
+        		"modifier_winters_arrow_slow_hidden"
         		{
-        		    "IsHidden"          "0"
-        		    "Properties"
+        		    "IsHidden"                  "1"
+        		    "IsDebuff"                  "0"
+        		    "Attributes"                "MODIFIER_ATTRIBUTE_MULTIPLE"
+        		    "OnCreated"
         		    {
-        		        "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_speed_gained"
+        		        "ApplyModifier"
+        		        {
+        		            "ModifierName"      "modifier_winters_arrow_slow"
+        		            "Target"            "TARGET"
+        		            "Duration"          "%duration"
+        		        }
         		    }
-
-        		    "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
+        		    "OnDestroy"
+                    {
+                        "ApplyModifier"
+                        {
+                            "ModifierName"      "modifier_winters_arrow_slow"
+                            "Target"            "TARGET"
+                            "Duration"          "%duration"
+                        }
+                    }
         		}
-        	}
+        		"modifier_winters_arrow_speed_hidden"
+        		{
+        		    "IsHidden"                  "1"
+        		    "Attributes"                "MODIFIER_ATTRIBUTE_MULTIPLE"
+        		    "OnCreated"
+        		    {
+        		        "ApplyModifier"
+        		        {
+        		            "ModifierName"      "modifier_winters_arrow_speed"
+        		            "Target"            "CASTER"
+        		            "Duration"          "%duration"
+        		        }
+        		    }
+        		    "OnDestroy"
+        		    {
+        		        "ApplyModifier"
+        		        {
+        		            "ModifierName"      "modifier_winters_arrow_speed"
+        		            "Target"            "CASTER"
+        		            "Duration"          "%duration"
+        		        }
+        		    }
+        		}
+            }
 }

@@ -12,7 +12,7 @@
         "precache"
         {
             "soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
-            "particle"		"particles/units/heroes/hero_ailil/trap_breathe_fire.vpcf"
+            "particle"		"particles/units/heroes/hero_jakiro/jakiro_dual_breath_ice.vpcf"
         }
 
         "AbilityCastRange"				"700"
@@ -67,14 +67,14 @@
                 "LinearProjectile"
                 {
                     "Target" "POINT"
-                    "EffectName" "particles/units/heroes/hero_ailil/trap_breathe_fire.vpcf"
+                    "EffectName" "particles/units/heroes/hero_jakiro/jakiro_dual_breath_ice.vpcf"
                     "MoveSpeed" "%speed"
                     "StartRadius" "%start_radius"
                     "StartPosition" "attach_origin"
                     "EndRadius" "%end_radius"
                     "FixedDistance" "%range"
                     "TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                    "TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
+                    "TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
                     "TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
                     "HasFrontalCone" "1"
                     "ProvidesVision" "0"
