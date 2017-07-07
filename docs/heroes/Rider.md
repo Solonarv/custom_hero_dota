@@ -39,7 +39,7 @@ Activate this ability to launch each echo back towards its creator; the echo dea
 
 ### Challenge
 
-The Rider challenges an enemy hero, increasing the damage they deal to each other and reducing the damage they deal to any other units.
+The Rider challenges an enemy hero, increasing the damage he and the challenged hero deal to each other and reducing the damage they deal to any other units.
  - The Rider can only challenge one enemy at a time.
  - The debuff on the challenged enemy can be removed by a strong dispel; this also removes the buff on the Rider.
  - The buff on the Rider cannot be purged (except as mentioned above).
