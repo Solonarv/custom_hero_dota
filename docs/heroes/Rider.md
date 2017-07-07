@@ -43,7 +43,7 @@ The Rider challenges an enemy hero, increasing the damage he and the challenged 
  - The Rider can only challenge one enemy at a time.
  - The debuff on the challenged enemy can be removed by a strong dispel; this also removes the buff on the Rider.
  - The buff on the Rider cannot be purged (except as mentioned above).
- - Persists through death.
+ - If either unit dies, the effect ends.
 
 | 32/28/24/20 second cooldown | 100/95/90/85 mana |
 |---|---|
