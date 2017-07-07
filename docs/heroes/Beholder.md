@@ -11,10 +11,9 @@ when you cast a spell, it is replaced by a random other spell from the pool.
 
 ### Fly
 
- - Toggle on to gain flying movement, extra movement speed
- - Costs mana per second
- - Cooldown when toggling off
- - Innate
+Beholder uses its power to hover in the air, granting it flying movement as long as it keeps spending mana.
+ - Beholder does not need to skill this ability; it is granted at level 1.
+ - Incurs its cooldown when toggled off.
 
 | 10 second cooldown | 30 mana |
 |---|---|
@@ -32,9 +31,9 @@ When the ability in this slot is used, it replaces the ability in Random Slot 1.
 This ability is replaced by the next ability from the Pool.
  
 ### Tyranny of Flesh
- - spell damage
- - reduces cooldown of switched-in spells
- - max 7 points
+
+Beholder's power of the flesh is a source of raw power for its spells, allowing them to be used more often and increasing their destructive capabilities.
+ - Max 7 points
 
 | Passive | |
 |---|---|
@@ -42,9 +41,8 @@ This ability is replaced by the next ability from the Pool.
 | Spell damage | depends on the spell |
 
 ### Tyranny of Mind
- - Cast range
- - Effect duration for Pool spells
- - max 7 points
+
+Beholder's hegemony over all things mental increases the efficiency of its spells, granting additional reach and lengthening their debilitating effects.
 
 | Passive | |
 |---|---|
@@ -53,19 +51,15 @@ This ability is replaced by the next ability from the Pool.
 
 ### Anti-Magic Cone
 
- - AoE dispel
-   - both allies and enemies
-   - dispels buffs and debuffs on both allies and enemies
- - manaburn (with damage)
-   - enemies only
- - silence
- - cone AoE
+Beholder emits a cone of anti-magic energy that dispels buffs and debuffs from all units caught in it. Enemies also have their mana burned and are silenced.
+ - Dispel affects allies and enemies equally. Acts as a strong dispel when removing debuffs.
+ - Mana burn deals magic damage equal to the amount of mana burned.
 
 | 70/60/50 second cooldown | 175/225/275 mana |
 |---|---|
 | Mana burn | 200/275/350 |
 | Silence duration | 1.5/1.75/2 seconds |
-| Ally dispel | Strong Dispel |
+| Dispel type | Strong Dispel |
 
 ## Ability pool
 
