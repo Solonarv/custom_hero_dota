@@ -53,9 +53,10 @@ The Rider challenges an enemy hero, increasing the damage he and the challenged 
 
 ### Heroic Sacrifice
 
-Redirect all damage from nearby allied heroes to the Rider. If the Rider dies during Last Stand, he releases a shockwave
-that deals damage to all enemies in a large area based on the total damage the Rider absorbed during Last Stand.
+Redirect all damage from nearby allied heroes to the Rider. If the Rider dies during Heroic Sacrifice, he releases a shockwave
+that deals damage to all enemies in a large area based on the total damage the Rider absorbed during Heroic Sacrifice.
 Every hero killed by the shockwave reduces the Rider's respawn time.
+ - Damage dealt directly to the Rider does not count towards Heroic Sacrifice's shockave.
 
 | 180/170/160 second cooldown | No mana cost |
 |---|---|
