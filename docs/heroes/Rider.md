@@ -8,7 +8,7 @@ The Rider is a tanky initiator who becomes more threatening the more damage he t
 
 ### Charge
 
-Activate to gain movement speed while moving towards a visible enemy. Charge ends when the Rider collides with an enemy hero;
+Activate to gain movement speed while moving towards a visible enemy hero. Charge ends when the Rider collides with an enemy hero;
 doing so will deal physical damage to the victim and stun it as well as other enemies in a small area.
  - The Rider must be within 50° of facing towards an enemy hero to gain the movement speed, but still gains half the benefit while within 70°.
  - Stun is centered between the Rider and his victim.
