@@ -27,7 +27,7 @@ Kael sneaks around enemy heroes, becoming invisible while an enemy hero is nearb
 
 ### Shroud
 
-Kael's damaging hits against heroes apply Shroud, a debuff which stacks up to 4 times. Applying Shroud to a hero will remove all SHroud stacks from other heroes. Activate to detonate all current Shroud stacks, applying a debuff that increases damage taken.
+Kael's damaging hits against heroes apply Shroud, a debuff which stacks up to 4 times. Applying Shroud to a hero will remove all Shroud stacks from other heroes. Activate to detonate all current Shroud stacks, applying a debuff that increases damage taken.
 
 | 15/14/13/12 second cooldown | 50 mana |
 |---|---|
@@ -38,4 +38,5 @@ Kael's damaging hits against heroes apply Shroud, a debuff which stacks up to 4 
 
 Kael places a mark on the target, applying a stack of Shroud and silencing it for 1 second. After 1 second, the mark detonates and deals damage. Does not break Sneak.
 | 80/70/60 second cooldown | 175/225/275 mana |
+|---|---|
 | Detonation damage | 300/450/600 |
