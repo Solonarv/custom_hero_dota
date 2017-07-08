@@ -16,7 +16,7 @@ function djinn_caldera:OnSpellStart()
     local caster = self:GetCaster()
     local dummy = CreateUnitByName("npc_dota_thinker", point, false, caster, caster, caster:GetTeamNumber())
     dummy:AddNewModifier(caster, self, "modifier_caldera_thinker", {duration = self:GetDuration()})
-    dummy:AddNewModifier(caster, self, "modifier_item_invisibility_edge_windwalk", {})
+    dummy:AddNewModifier(caster, self, "modifier_phased", {})
 end
 
 function djinn_caldera:GetInterval()

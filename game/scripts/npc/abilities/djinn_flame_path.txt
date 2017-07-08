@@ -25,7 +25,8 @@
     "precache"
     {
         "soundfile"					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-        "particle"					"particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+        "particle"					"particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
+        "particle"                  "particles/dev/empty_particle.vpcf"
     }
 
     "AbilitySpecial"
@@ -81,21 +82,10 @@
             "Function"          "CreateFlamePatch"
             "Target"            "POINT"
             "flame_cost"        "%flame_cost"
-            "particle"          "particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+            "particle"          "particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
             "radius"            "%radius"
             "duration"          "%duration"
             "thinker_modifier"  "modifier_flame_path_thinker"
-        }
-    }
-
-    "OnProjectileHitUnit"
-    {
-        "DeleteOnHit"           "0"
-        "ApplyModifier"
-        {
-            "ModifierName"      "modifier_flame_path_damage"
-            "Target"            "TARGET"
-            "Duration"          "%duration"
         }
     }
 
@@ -140,6 +130,26 @@
                 "RemoveUnit"
                 {
                     "Target"    "TARGET"
+                }
+            }
+
+            "IntervalThink"     "%interval"
+            "OnIntervalThink"
+            {
+                "ActOnTargets"
+                {
+                    "Target"
+                    {
+                        "Center"    "TARGET"
+                        "Radius"    "%radius"
+                    }
+                    "Action"
+                    {
+                        "ApplyModifier"
+                        {
+                            "ModifierName"  "modifier_flame_path_damage"
+                        }
+                    }
                 }
             }
         }

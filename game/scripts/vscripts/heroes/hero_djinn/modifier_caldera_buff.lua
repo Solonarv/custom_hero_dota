@@ -8,6 +8,8 @@
 
 modifier_caldera_buff = class({})
 
+
+ -- Note: This modifier correctly provides Ember Might's attack damage and spell amp, but they are not displayed.
 function modifier_caldera_buff:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE_STACKING,

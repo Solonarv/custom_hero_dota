@@ -1533,7 +1533,7 @@
 	
 	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 	    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_ALL"
+	    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	
@@ -1696,7 +1696,8 @@
 	    "precache"
 	    {
 	        "soundfile"					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
-	        "particle"					"particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+	        "particle"					"particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
+	        "particle"                  "particles/dev/empty_particle.vpcf"
 	    }
 	
 	    "AbilitySpecial"
@@ -1752,21 +1753,10 @@
 	            "Function"          "CreateFlamePatch"
 	            "Target"            "POINT"
 	            "flame_cost"        "%flame_cost"
-	            "particle"          "particles/units/heroes/hero_batrider/batrider_firefly.vpcf"
+	            "particle"          "particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
 	            "radius"            "%radius"
 	            "duration"          "%duration"
 	            "thinker_modifier"  "modifier_flame_path_thinker"
-	        }
-	    }
-	
-	    "OnProjectileHitUnit"
-	    {
-	        "DeleteOnHit"           "0"
-	        "ApplyModifier"
-	        {
-	            "ModifierName"      "modifier_flame_path_damage"
-	            "Target"            "TARGET"
-	            "Duration"          "%duration"
 	        }
 	    }
 	
@@ -1811,6 +1801,39 @@
 	                "RemoveUnit"
 	                {
 	                    "Target"    "TARGET"
+	                }
+	            }
+	
+	            "IntervalThink"     "%interval"
+	            "OnIntervalThink"
+	            {
+	                "ActOnTargets"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "TARGET"
+	                        "Radius"    "%radius"
+	                    }
+	                    "Action"
+	                    {
+	                        "ApplyModifier"
+	                        {
+	                            "ModifierName"  "modifier_flame_path_damage"
+	                        }
+	                    }
+	                }
+	            }
+	            "OnCreated"
+	            {
+	                "AttachEffect"
+	                {
+	                    "Target"    "TARGET"
+	                    "EffectName"        "particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
+	                    "EffectAttachType"  "follow_origin"
+	                    "ControlPoints"
+	                    {
+	                        "01"    "%radius 0 0"
+	                    }
 	                }
 	            }
 	        }

@@ -18,14 +18,18 @@ function CreateFlamePatch(kv)
     local point = kv.target_points[1]
     caster.flame = caster.flame - kv.flame_cost
 
+    local emptyParticle = "particles/dev/empty_particle.vpcf"
+
     local endTime = GameRules:GetGameTime() + kv.duration
 
     local pfx = ParticleManager:CreateParticle(kv.particle, PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(pfx, 0, point)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(kv.radius, 0, 0))
+--    print("Created Flame Path particle: "..pfx)
 
     local proj = ProjectileManager:CreateLinearProjectile({
         Ability = ability,
-        EffectName = kv.particle,
+        EffectName = emptyParticle,
         vSpawnOrigin = point,
         fDistance = 64,
         fStartRadius = kv.radius,
@@ -44,7 +48,7 @@ function CreateFlamePatch(kv)
 
     local dummy = CreateUnitByName("npc_dota_thinker", point, false, caster, caster, caster:GetTeamNumber())
     ability:ApplyDataDrivenModifier(caster, dummy, kv.thinker_modifier, {})
-    ability:ApplyDataDrivenModifier(caster, dummy, "modifier_item_invisibility_edge_windwalk", {})
+    ability:ApplyDataDrivenModifier(caster, dummy, "modifier_phased", {})
 
     ability.flame_patches = ability.flame_patches or {}
     ability.flame_patches[proj] = {
@@ -73,6 +77,8 @@ function TickDamageAndCheckRange(kv)
             damage_type = DAMAGE_TYPE_MAGICAL,
             ability = kv.ability
         })
+    else
+        kv.target:RemoveModifierByNameAndCaster(kv.modifier, kv.caster)
     end
 end
 
