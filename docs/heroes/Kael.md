@@ -1,49 +1,42 @@
 # Kael
 
-## Mechanics
-
-Melee.
-
-### Shroud
-
- - When Assassin hits an enemy hero
-   - that hero has a stack of Shroud applied.
-     - max 4 stacks
-   - Shroud stacks are removed from all other heroes
-   - any damage instance works
+Sneaky melee assassin.
 
 ## Abilities
 
 ### Dagger Throw
 
- - Throw a bunch of daggers at one target
- - like 1/2/2/3
- - damage, applies shroud
- - low CD, low-ish mana cost
+Kael throws a fistful of daggers at the target, dealing damage and applying Shroud.
 
-### Lift Shroud
-
- - Remove all Shroud stacks from a target
- - damage amplification
-   - as a debuff on the target
-   - based on number of shroud stack lifted
-
+| 5 second cooldown | 15/20/25/30 mana |
+|---|---|
+| Daggers thrown | 1/2/2/3 |
+| Damage | 40/40/60/60 |
+| Total damage | 40/80/120/180 |
 
 ### Sneak
 
-- passive
-- while in radius of a hero
-  - ally or enemy
-  - invisible (with a fade time)
-  - can activate to teleport to target hero
-    - can't become invis for a while after this
+Kael sneaks around enemy heroes, becoming invisible while an enemy hero is nearby. While invisible, he can activate Sneak to teleport to the target enemy hero; doing so disables the invisibility for a short time.
+- can be cast with no target; this will teleport Kael to the nearest enemy hero in range.
 
-### Omae wa mo Shindeiru / Heart of Dust
+| 8/7/6/5 second cooldown | 120/110/100/90 mana |
+|---|---|
+| Sneak radius | 800/900/1000/1100 |
+| Fade time | 0.8/0.6/0.4/0.2 seconds |
+| Invisibility disable duration | 5/4.5/4/3.5 seconds |
 
- - place a mark on the target
- - silences
- - applies 1 stack of Shroud
- - after 1 second, the mark detonates
-   - this doesn't apply shroud
-   - deals damage
- - can be cast from invis
+### Shroud
+
+Kael's damaging hits against heroes apply Shroud, a debuff which stacks up to 4 times. Applying Shroud to a hero will remove all Shroud stacks from other heroes. Activate to detonate all current Shroud stacks, applying a debuff that increases damage taken.
+
+| 15/14/13/12 second cooldown | 50 mana |
+|---|---|
+| Duration | 4/5/6/7 seconds |
+| Damage amplification per Shroud stack | 6/8/10/12% |
+
+### Heart of Dust
+
+Kael places a mark on the target, applying a stack of Shroud and silencing it for 1 second. After 1 second, the mark detonates and deals damage. Does not break Sneak.
+| 80/70/60 second cooldown | 175/225/275 mana |
+|---|---|
+| Detonation damage | 300/450/600 |
