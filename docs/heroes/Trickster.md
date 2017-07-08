@@ -48,6 +48,7 @@ Whenever Rubick casts a spell, nearby enemies become Confused. Confused enemies'
 Rubick mimics his Studied target's most recently cast spell with a target of his choice. The spell appears to originate from the Studied target.
  - Can be cast irrespective of the original ability's cooldown and mana cost.
  - Cannot cast the same ability twice within that ability's original cooldown time.
+ - Rubick must have vision over the Studied hero.
 
 | 24/12/6 second cooldown | Mana cost is equal to 100/80/60% of the original ability's cost |
 |---|---|
@@ -61,3 +62,12 @@ Rubick studies an enemy hero's spellcasting, allowing him to Mimic it in a limit
 |---|---|
 | Duration | 60 second |
 | Cast range | 550/750/950 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | Permanent Study  | +6 Dancing Lights damage |
+| 20 | +30% Dancing Lights movement slow | +20% magic resistance |
+| 15 | +6 Armor | +8% Spell Amplification |
+| 10 | +2 second Dancing Lights duration | +15% experience gain |

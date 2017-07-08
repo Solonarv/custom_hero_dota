@@ -32,7 +32,7 @@ This ability is replaced by the next ability from the Pool.
  
 ### Tyranny of Flesh
 
-Beholder's power of the flesh is a source of raw power for its spells, allowing them to be used more often and increasing their destructive capabilities.
+Beholder's power over the flesh is a source of raw power for its spells, allowing them to be used more often and increasing their destructive capabilities.
  - Max 7 points
 
 | Passive | |
@@ -151,3 +151,12 @@ Attempts to terminate the target's life, dealing moderate damage and instantly k
 |---|---|
 | Damage | 150 + 15 per Tyranny of Flesh level |
 | Death threshold | 5% of maximum health or 100, whichever is higher |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | +20% Spell Amplification |  |
+| 20 | Disables deal 20 DPS | +300 health |
+| 15 | +25% experience gain | +200 mana |
+| 10 | +3 mana regen | +15 movement speed |

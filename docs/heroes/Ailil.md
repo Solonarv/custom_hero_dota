@@ -55,3 +55,12 @@ Enemies that reach minimum movement speed are stunned.
 | Stun duration | 4/4.5/5 seconds |
 | Radius | 375/400/425 |
 | Damage per missing movement speed | 1/1.5/2 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | Deep Freeze pierces Spell Immunity | +400 Health |
+| 20 | +4 Winter's Arrow steal | +120 Rime Breath damage |
+| 15 | +20 damage | +120 cast range |
+| 10 | +15 movement speed | +3 mana regen |

@@ -51,7 +51,7 @@ Shielder's attacks have a chance to rend enemies' spirit, causing them to leave 
 
 Shielder takes a portion of damage from mana before health. This portion is 30% at full health and 100% at zero health.
 
- - The percentage is based on the health Shielder would be at after takinf the full damage.
+ - The percentage is based on the health Shielder would be at after taking the full damage.
 
 | Passive | Innate |
 |---|---|
@@ -64,3 +64,12 @@ Shielder sacrifices all his mana and all but 1 health to deal damage to all near
 |---|---|
 | Damage | 45/60/75% of health/mana |
 | Radius | 450 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | 2x Chaos Nova lifesteal | +3 Essence Drain charges |
+| 20 | +30 Essence Drain DPS | +10% Ghost Reaver lifesteal |
+| 15 | +200 mana | +40 damage |
+| 10 | +20 movement speed | +8 Strength |

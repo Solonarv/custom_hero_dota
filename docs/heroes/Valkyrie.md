@@ -54,3 +54,12 @@ After channeling for a duration, Valkyrie sacrifices her own health in order to 
 | Resurrect health | 60/75/90% |
 | Resurect mana | 30/60/90% |
 | Health cost | 30/25/20% |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | No Ghost Form mana cost | No Resurrect health cost |
+| 20 | +150 Judgment damage/healing | -6 second Soul Rip cooldown |
+| 15 | +5 mana regen | +15 all stats |
+| 10 | +50 Soul Rip damage | +20 movement speed |

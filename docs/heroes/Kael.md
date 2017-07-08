@@ -37,6 +37,16 @@ Kael's damaging hits against heroes apply Shroud, a debuff which stacks up to 4 
 ### Heart of Dust
 
 Kael places a mark on the target, applying a stack of Shroud and silencing it for 1 second. After 1 second, the mark detonates and deals damage. Does not break Sneak.
+
 | 80/70/60 second cooldown | 175/225/275 mana |
 |---|---|
 | Detonation damage | 300/450/600 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | +1 max Shroud stack and Shroud slows | +2 Heart of Dust charges |
+| 20 | +300 Sneak range | +20 Agility |
+| 15 | +2 Dagger Throw dagger | +40 damage |
+| 10 | +20 attack speed | +15 movement speed |

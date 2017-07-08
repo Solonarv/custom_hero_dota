@@ -18,8 +18,7 @@ becomes radioactive.
 
 Flicker dashes to the target point at extreme speed, leaving behind a trace at her original location.
 
-
-|0.5 second cooldown| 50 mana     |
+| 0.5 second cooldown | 50 mana     |
 |------------|-----|
 | Cast range | 700 |
 | Max charges | 3/4/4/5 |
@@ -69,6 +68,15 @@ on Rapid Strike and Stabilize.
 | Duration | 4/5/6 seconds|
 | Radius/range increase | 50/70/90 % |
 
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | +3 Rapid Strike attacks | Stabilize reduces Ascension cooldown |
+| 20 | Removed Flash Step cooldown/cast time | +130 Stabilize damage |
+| 15 | +15 Agility | +15% magic resistance |
+| 10 | +30 damage | +10 Strength |
 
 ## Ability Design breakdown
 

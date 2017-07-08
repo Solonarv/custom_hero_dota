@@ -64,3 +64,12 @@ Every hero killed by the shockwave reduces the Rider's respawn time.
 | Duration | 4/5/6 seconds |
 | Shockwave damage | 66% |
 | Respawn time reduction | 10/20/30 seconds |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | +2 second Heroic Sacrifice duration | Challenge lasts forever |
+| 20 | +15 all stats | +30% Vengeance damage |
+| 15 | +40 attack speed | +15 Intelligence |
+| 10 | +15 movement speed | +20 damage |

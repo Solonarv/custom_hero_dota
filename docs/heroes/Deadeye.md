@@ -61,3 +61,12 @@ Fires an arrow at the target location that will teleport you there when it lands
 |---|---|
 | Active duration | 6/8/10 seconds |
 | Extra arrows | 2/2/4 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | +2 Lightning Arrow bounces | Lightning Arrow applies attack modifiers |
+| 20 | Blink Arrow summons illusion | +60 attack speed |
+| 15 | +10 all stats | +20 movement speed |
+| 10 | +20 damage | +4 mana regen |

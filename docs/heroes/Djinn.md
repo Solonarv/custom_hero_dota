@@ -70,21 +70,6 @@ over time based on how much he's missing, up to a maximum.
 | Flame generation at 0 Flame | 20 |
 | Flame generation at 100 Flame | 4 |
 
-### Incinerate
-
-Djinn focuses his fire on an enemy hero, dealing intense damage over time
-while the target is in range. Inner Flame's regeneration is halved while
-channeling Incinerate.
-
-| 80/70/60 second cooldown | 175/225/275 mana |
-|---|---|
-| Duration | 11/12/13 seconds |
-| Damage per second | 80/100/120 |
-| Cast range | 500 |
-| Buffer range | 300 |
-
-## Notes
-
 ### Caldera
 
 Incinerate is kind of bad and doesn't fit the hero well. Alternative ult:
@@ -99,6 +84,17 @@ Djinn projects his Inner Flame outward, creating a zone of heated air surrounded
 | Ring width | 200 |
 | Cast range | 500 |
 | Damage per second | 80/100/120 |
+
+## Talents
+
+| Level | | |
+|---|---|---|
+| 25 | 1.5x Ember Might | +25% Cooldown Reduction |
+| 20 | +30 maximum Inner Flame | +20 Flame Path DPS |
+| 15 | +4 Deflagration damage per 10 Flame | +150 cast range |
+| 10 | +8 Strength | +175 mana |
+
+## Notes/balance concerns
 
 ### Flame Path/Inner Flame/Ember Might
 
