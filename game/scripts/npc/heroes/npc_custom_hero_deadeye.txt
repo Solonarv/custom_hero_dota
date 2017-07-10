@@ -1,7 +1,7 @@
 "npc_custom_hero_deadeye"
   {
     "AbilityLayout"     "4"
-    "override_hero"     "npc_dota_hero_drow_ranger"
+    "override_hero"     "npc_dota_hero_windrunner"
     "SoundSet"          "0" 
     "Ability1"        "deadeye_lightning_arrow" 
     "Ability2"        "deadeye_blink_arrow" 

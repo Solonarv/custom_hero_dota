@@ -1,7 +1,7 @@
 "npc_custom_hero_ailil"
   {
     "AbilityLayout"     "4"
-    "override_hero"     "npc_dota_hero_windrunner"
+    "override_hero"     "npc_dota_hero_drow_ranger"
     "SoundSet"          "0"
     "Ability1"        "ailil_winters_arrow"
     "Ability2"        "ailil_rime_breath"
