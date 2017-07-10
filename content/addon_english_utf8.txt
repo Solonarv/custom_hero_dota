@@ -27,7 +27,7 @@
         "DOTA_Tooltip_ability_xirgil_shadow_nova_Description"               "Xirgil and his shadows each release a nova, dealing magical damage to nearby enemies. Enemies hit by multiple novas will take reduced damage from each nova beyond the first."
         "DOTA_Tooltip_ability_xirgil_shadow_nova_Lore"                              ""
         "DOTA_Tooltip_ability_xirgil_shadow_nova_AbilityDamage"                     "DAMAGE:"
-        "DOTA_Tooltip_ability_xirgil_shadow_nova_repeat_damage_percent"             "REPEAT DAMAGE %:"
+        "DOTA_Tooltip_ability_xirgil_shadow_nova_repeat_damage_percent"             "%REPEAT DAMAGE:"
         "DOTA_Tooltip_ability_xirgil_shadow_nova_radius"                            "RADIUS:"
 
         "DOTA_Tooltip_ability_xirgil_fractal_rush"                      "Fractal Rush"
@@ -110,25 +110,25 @@
 
         "DOTA_Tooltip_ability_deadeye_lightning_arrow"                                    "Lightning Arrow"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_Description"                        "Fires a piercing projectile that deals physical damage based on your attack damage to up to 3 nearby targets on impact. Deals half damage when jumping from creeps to heroes."
-        "DOTA_Tooltip_ability_deadeye_lightning_arrow_scale_damage"                       "SCALING DAMAGE:"
+        "DOTA_Tooltip_ability_deadeye_lightning_arrow_scale_damage"                       "%SCALING DAMAGE:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_radius"                             "RADIUS:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_max_secondary_hits"                 "SECONDARY HITS:"
 
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_i"                                    "Lightning Arrow"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_i_Description"                        "Fires three piercing projectiles that deal physical damage based on your attack damage to up to 3 nearby targets on impact. Deals half damage when jumping from creeps to heroes."
-        "DOTA_Tooltip_ability_deadeye_lightning_arrow_i_scale_damage"                       "SCALING DAMAGE:"
+        "DOTA_Tooltip_ability_deadeye_lightning_arrow_i_scale_damage"                       "%SCALING DAMAGE:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_i_radius"                             "RADIUS:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_i_max_secondary_hits"                 "SECONDARY HITS:"
 
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii"                                    "Lightning Arrow"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii_Description"                        "Fires three piercing projectiles that deal physical damage based on your attack damage to up to 3 nearby targets on impact. Deals half damage when jumping from creeps to heroes."
-        "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii_scale_damage"                       "SCALING DAMAGE:"
+        "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii_scale_damage"                       "%SCALING DAMAGE:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii_radius"                             "RADIUS:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_ii_max_secondary_hits"                 "SECONDARY HITS:"
 
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii"                                    "Lightning Arrow"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii_Description"                        "Fires five piercing projectiles that deal physical damage based on your attack damage to up to 3 nearby targets on impact. Deals half damage when jumping from creeps to heroes."
-        "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii_scale_damage"                       "SCALING DAMAGE:"
+        "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii_scale_damage"                       "%SCALING DAMAGE:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii_radius"                             "RADIUS:"
         "DOTA_Tooltip_ability_deadeye_lightning_arrow_iii_max_secondary_hits"                 "SECONDARY HITS:"
 
@@ -159,10 +159,10 @@
         "DOTA_Tooltip_ability_deadeye_graceful_assault_Description"                       "<b>Passive</b>: You have 20% chance when dealing damage to gain a stack of Onslaught.<br><b>Active</b>: Consume all stacks of Onslaught and gain Grace. Grace grants movement speed and evade chance. Grace duration is based on number of Onslaught stacks consumed. Cannot gain Onslaught during Grace."
         "DOTA_Tooltip_ability_deadeye_graceful_assault_duration"                          "ONSLAUGHT DURATION:"
         "DOTA_Tooltip_ability_deadeye_graceful_assault_bonus_attack_speed"                "ONSLAUGHT BONUS ATTACK SPEED:"
-        "DOTA_Tooltip_ability_deadeye_graceful_assault_bonus_movement_speed"              "ONSLAUGHT BONUS MOVEMENT SPEED:"
-        "DOTA_Tooltip_ability_deadeye_graceful_assault_evade_chance"                      "GRACE EVADE CHANCE:"
+        "DOTA_Tooltip_ability_deadeye_graceful_assault_bonus_movement_speed"              "%ONSLAUGHT BONUS MOVEMENT SPEED:"
+        "DOTA_Tooltip_ability_deadeye_graceful_assault_evade_chance"                      "%GRACE EVADE CHANCE:"
         "DOTA_Tooltip_ability_deadeye_graceful_assault_duration_per_stack"                "DURATION PER STACK:"
-        "DOTA_Tooltip_ability_deadeye_graceful_assault_active_bonus_movement_speed"       "GRACE BONUS MOVEMENT SPEED:"
+        "DOTA_Tooltip_ability_deadeye_graceful_assault_active_bonus_movement_speed"       "%GRACE BONUS MOVEMENT SPEED:"
 
         "npc_dota_hero_antimage"                                                          "Shielder"
         "npc_custom_hero_shielder"                                                        "Shielder"
@@ -183,7 +183,7 @@
 
         "DOTA_Tooltip_ability_shielder_ghost_reaver_mana"                                 "Ghost Reaver: Mana"
         "DOTA_Tooltip_ability_shielder_ghost_reaver_mana_Description"                     "<b>Passive</b>: Ghost Reaver allows Shielder to leech a portion of all damage dealt, as both life and mana.<br><b>Active</b>: Toggle on to gradually increase mana leech at the expense of life leech."
-        "DOTA_Tooltip_ability_shielder_ghost_reaver_mana_leech_pct"                       "LEECH %:"
+        "DOTA_Tooltip_ability_shielder_ghost_reaver_mana_leech_pct"                       "%LEECH:"
 
         "DOTA_Tooltip_ability_shielder_essence_drain"                                     "Essence Drain"
         "DOTA_Tooltip_ability_shielder_essence_drain_Description"                         "Shielder drains the life essence from the target, slowing it, gaining movement speed, dealing magical damage over time and leeching 100% of the damage dealt."
@@ -194,11 +194,11 @@
 
         "DOTA_Tooltip_ability_shielder_energy_shield"                                     "Energy Shield"
         "DOTA_Tooltip_ability_shielder_energy_shield_Description"                         "Shielder takes a portion of damage from mana before health. This portion is 30% at full health and 100% at zero health."
-        "DOTA_Tooltip_ability_shielder_energy_shield_Note0"                               " The percentage is based on the health Shielder would be at after takinf the full damage."
+        "DOTA_Tooltip_ability_shielder_energy_shield_Note0"                               "The percentage is based on the health Shielder would be at after taking the full damage."
 
         "DOTA_Tooltip_ability_shielder_ghost_reaver_life"                                 "Ghost Reaver: Life"
         "DOTA_Tooltip_ability_shielder_ghost_reaver_life_Description"                     "<b>Passive</b>: Ghost Reaver allows Shielder to leech a portion of all damage dealt, as both life and mana.<br><b>Active</b>: Toggle on to gradually increase life leech at the expense of mana leech."
-        "DOTA_Tooltip_ability_shielder_ghost_reaver_life_leech_pct"                       "LEECH %:"
+        "DOTA_Tooltip_ability_shielder_ghost_reaver_life_leech_pct"                       "%LEECH:"
 
         "DOTA_Tooltip_ability_shielder_spirit_bleed"                                      "Spirit Bleed"
         "DOTA_Tooltip_ability_shielder_spirit_bleed_Description"                          "Shielder's attacks have a chance to rend enemies' spirit, causing them to leave a trail that boosts Shielder's movement speed and restores mana when moving."
@@ -211,7 +211,7 @@
 
         "DOTA_Tooltip_ability_shielder_chaos_nova"                                        "CHAOS NOVA"
         "DOTA_Tooltip_ability_shielder_chaos_nova_Description"                            "Shielder sacrifices all his mana and all but 1 health to deal damage to all nearby enemies based on the health and mana lost."
-        "DOTA_Tooltip_ability_shielder_chaos_nova_damage_scale"                           "DAMAGE %:"
+        "DOTA_Tooltip_ability_shielder_chaos_nova_damage_scale"                           "%HEALTH AND MANA AS DAMAGE:"
         "DOTA_Tooltip_ability_shielder_chaos_nova_radius"                                 "RADIUS:"
 
         "npc_dota_hero_vengefulspirit"                                                    "Valkyrie"
@@ -221,7 +221,7 @@
         "DOTA_Tooltip_modifier_soul_rip_preattack_Description"                            "The next attack will slow and rip the soul out of the target."
 
         "DOTA_Tooltip_modifier_soul_rip_slow"                                             "Soul Rip Slow"
-        "DOTA_Tooltip_modifier_soul_rip_slow_Description"                                 "Movement slowed."
+        "DOTA_Tooltip_modifier_soul_rip_slow_Description"                                 "Valkyrie has torn your soul out of your body. You are slowed and take a portion of all damage dealt to your soul."
 
         "DOTA_Tooltip_modifier_ghost_form"                                                "Ghost Form"
         "DOTA_Tooltip_modifier_ghost_form_Description"                                    "Moves faster, can fly, and has a chance to evade incoming attacks. Can't attack. Drains mana per second."
@@ -230,7 +230,7 @@
         "DOTA_Tooltip_ability_valkyrie_judgment_Description"                              "Valkyrie passes judgment on the target hero. If they've damaged a hero recently, they are healed; otherwise, they are damaged. Allies take reduced damage and enemies are healed for less."
         "DOTA_Tooltip_ability_valkyrie_judgment_Note0"                                    "Recently refers to the past 5 seconds."
         "DOTA_Tooltip_ability_valkyrie_judgment_healing"                                  "HEALING:"
-        "DOTA_Tooltip_ability_valkyrie_judgment_partiality"                               "DAMAGE/HEALING REDUCTION %:"
+        "DOTA_Tooltip_ability_valkyrie_judgment_partiality"                               "%DAMAGE/HEALING REDUCTION:"
 
         "DOTA_Tooltip_ability_valkyrie_soul_rip"                                          "Soul Rip"
         "DOTA_Tooltip_ability_valkyrie_soul_rip_Description"                              "Valkyrie empowers her next attack, giving it bonus range and damage. In addition, it will rip the soul out of its target, slowing it and summoning an illusion of it. The illusion transfers a portion of damage taken to the original."
@@ -238,14 +238,14 @@
         "DOTA_Tooltip_ability_valkyrie_soul_rip_Note1"                                    "The illusion can't be killed, but will disappear if the target dies or another target is hit with Soul Rip."
         "DOTA_Tooltip_ability_valkyrie_soul_rip_bonus_attack_range"                       "BONUS RANGE:"
         "DOTA_Tooltip_ability_valkyrie_soul_rip_buff_duration"                            "BUFF DURATION:"
-        "DOTA_Tooltip_ability_valkyrie_soul_rip_movement_speed_slow"                      "MOVEMENT SLOW %:"
+        "DOTA_Tooltip_ability_valkyrie_soul_rip_movement_speed_slow"                      "%MOVEMENT SLOW:"
         "DOTA_Tooltip_ability_valkyrie_soul_rip_slow_duration"                            "SLOW DURATION:"
         "DOTA_Tooltip_ability_valkyrie_soul_rip_soul_duration"                            "ILLUSION DURATION:"
-        "DOTA_Tooltip_ability_valkyrie_soul_rip_damage_transfer"                          "DAMAGE TRANSFER %:"
+        "DOTA_Tooltip_ability_valkyrie_soul_rip_damage_transfer"                          "%DAMAGE TRANSFER:"
 
         "DOTA_Tooltip_ability_valkyrie_ghost_form"                                        "Ghost Form"
         "DOTA_Tooltip_ability_valkyrie_ghost_form_Description"                            "Valkyrie becomes immaterial, gaining bonus movement speed flying movement as well as a chance to evade incoming attacks. Disables basic attack and drains mana per second."
-        "DOTA_Tooltip_ability_valkyrie_ghost_form_bonus_movement_speed"                   "BONUS MOVEMENT SPEED %:"
+        "DOTA_Tooltip_ability_valkyrie_ghost_form_bonus_movement_speed"                   "%BONUS MOVEMENT SPEED:"
         "DOTA_Tooltip_ability_valkyrie_ghost_form_evade_chance"                           "EVADE CHANCE:"
         "DOTA_Tooltip_ability_valkyrie_ghost_form_mana_per_second"                        "MANA PER SECOND:"
 
@@ -253,8 +253,8 @@
         "DOTA_Tooltip_ability_valkyrie_resurrect_Description"                             "After channeling for a duration, Valkyrie sacrifices her own health in order to resurrect a fallen ally with a fraction of their health and mana."
         "DOTA_Tooltip_ability_valkyrie_resurrect_channel_time"                            "CHANNEL TIME:"
         "DOTA_Tooltip_ability_valkyrie_resurrect_health_cost"                             "HEALTH COST:"
-        "DOTA_Tooltip_ability_valkyrie_resurrect_resurrect_health"                        "HEALTH %:"
-        "DOTA_Tooltip_ability_valkyrie_resurrect_resurrect_mana"                          "MANA %:"
+        "DOTA_Tooltip_ability_valkyrie_resurrect_resurrect_health"                        "%RESURRECTEE HEALTH:"
+        "DOTA_Tooltip_ability_valkyrie_resurrect_resurrect_mana"                          "%RESURRECTEE MANA:"
 
                 // DOTA 2 MODKIT GENERATED TOOLTIPS FOR: custom_hero_test_700
         // Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
@@ -269,7 +269,7 @@
 
         // ******************** ABILITY MODIFIERS ********************
         "DOTA_Tooltip_modifier_flash_step_charges"                                        "Flash Step Counter"
-        "DOTA_Tooltip_modifier_flash_step_charges_Description"                            "Flicker has this many charges of Flash Step stored."
+        "DOTA_Tooltip_modifier_flash_step_charges_Description"                            "Number of times Flicker can use Flash Step or Recall."
 
         "DOTA_Tooltip_modifier_shrapnel_shot_stun"                                        "Shrapnel Shot"
         "DOTA_Tooltip_modifier_shrapnel_shot_stun_Description"                            "Stunned."
@@ -304,17 +304,17 @@
         "DOTA_Tooltip_ability_flicker_stabilize_Description"                              "Flicker uses her environment to anchor herself, damaging and slowing all nearby enemies. She also gains a charge for Flash Step, another charge for each hero hit, and additional charges based on the number of non-heroes hit."
         "DOTA_Tooltip_ability_flicker_stabilize_radius"                                   "RADIUS:"
         "DOTA_Tooltip_ability_flicker_stabilize_duration"                                 "SLOW DURATION:"
-        "DOTA_Tooltip_ability_flicker_stabilize_movement_slow"                            "MOVEMENT SLOW %:"
+        "DOTA_Tooltip_ability_flicker_stabilize_movement_slow"                            "%MOVEMENT SLOW:"
         "DOTA_Tooltip_ability_flicker_stabilize_hits_per_charge"                          "HITS PER CHARGE:"
-        "DOTA_Tooltip_ability_flicker_stabilize_charges_per_hero"                          "CHARGES PER HERO HIT:"
+        "DOTA_Tooltip_ability_flicker_stabilize_charges_per_hero"                         "CHARGES PER HERO HIT:"
 
 
         "DOTA_Tooltip_ability_flicker_rapid_strike"                                       "Rapid Strike"
         "DOTA_Tooltip_ability_flicker_rapid_strike_Description"                           "Flicker teleports to a target and attacks it several times from different directions with greatly increased attack speed, then teleports back."
         "DOTA_Tooltip_ability_flicker_rapid_strike_attack_count"                          "ATTACKS:"
         "DOTA_Tooltip_ability_flicker_rapid_strike_base_attack_time"                      "BASE ATTACK TIME:"
-        "DOTA_Tooltip_modifier_rapid_strike"                                                "Rapid Strike"
-        "DOTA_Tooltip_modifier_rapid_strike_Description"                                 "Flicker is rapidly attacking her target."
+        "DOTA_Tooltip_modifier_rapid_strike"                                              "Rapid Strike"
+        "DOTA_Tooltip_modifier_rapid_strike_Description"                                  "Flicker is rapidly attacking her target."
 
         "DOTA_Tooltip_ability_flicker_recall"                                             "Recall"
         "DOTA_Tooltip_ability_flicker_recall_Description"                                 "Flicker instantly returns to the location of the newest trace, destroying it in the process. Charges and cooldown are shared with Flash Step."
@@ -325,7 +325,7 @@
 
         "DOTA_Tooltip_ability_flicker_ascension"                                          "Ascension"
         "DOTA_Tooltip_ability_flicker_ascension_Description"                              "Flicker taps into her eldritch nature, gaining increased cast range for Flash Step and Rapid Strike; increased radius for Stabilize; the ability to Recall without using Flash Step charges; and refreshing the cooldowns on Rapid Strike and Stabilize."
-        "DOTA_Tooltip_ability_flicker_ascension_reach_increase"                           "REACH INCREASE:"
+        "DOTA_Tooltip_ability_flicker_ascension_reach_increase"                           "%REACH INCREASE:"
         "DOTA_Tooltip_ability_flicker_ascension_duration"                                 "DURATION:"
 
 
@@ -345,8 +345,9 @@
         // ******************** ABILITIES ********************
         "DOTA_Tooltip_ability_ailil_winters_arrow"                                        "Winter's Arrow"
         "DOTA_Tooltip_ability_ailil_winters_arrow_Description"                            "Ailil's attacks deal additional magic damage and steal movement speed from enemies."
-        "DOTA_Tooltip_ability_ailil_winters_arrow_movement_speed_gained"                  "MOVEMENT SPEED STOLEN:"
-        "DOTA_Tooltip_ability_ailil_winters_arrow_AbilityDamage"                  "DAMAGE:"
+        "DOTA_Tooltip_ability_ailil_winters_arrow_movement_speed_stolen"                  "MOVEMENT SPEED STOLEN:"
+        "DOTA_Tooltip_ability_ailil_winters_arrow_AbilityDamage"                          "DAMAGE:"
+        "DOTA_Tooltip_ability_ailil_winters_arrow_duration"                               "DURATION:"
 
 
 		"DOTA_Tooltip_modifier_rime_breath_slow"                                          "Rime Breath"
@@ -354,8 +355,8 @@
 
 		"DOTA_Tooltip_ability_ailil_rime_breath"                                          "Rime Breath"
 		"DOTA_Tooltip_ability_ailil_rime_breath_Description"                              "Breathes frost in a cone in front of Ailil, dealing magic damage and slowing enemies hit."
-		"DOTA_Tooltip_ability_ailil_rime_breath_movement_slow_pct"                        "MOVEMENT SLOW %:"
-		"DOTA_Tooltip_ability_ailil_rime_breath_attack_slow_pct"                          "ATTACK SLOW %:"
+		"DOTA_Tooltip_ability_ailil_rime_breath_movement_slow_pct"                        "%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_ailil_rime_breath_attack_slow_pct"                          "ATTACK SLOW:"
 		"DOTA_Tooltip_ability_ailil_rime_breath_duration"                                 "DURATION:"
 		"DOTA_Tooltip_ability_ailil_rime_breath_AbilityDamage"                            "DAMAGE:"
 
@@ -388,7 +389,7 @@
 
 		"DOTA_Tooltip_ability_ailil_deep_freeze"                                          "Deep Freeze"
 		"DOTA_Tooltip_ability_ailil_deep_freeze_Description"                              "Freezes all enemies in the target area, slowing them and dealing damage based on their missing movement speed. Enemies that reach minimum movement speed are stunned."
-		"DOTA_Tooltip_ability_ailil_deep_freeze_movespeed_slow"                           "MOVEMENT SPEED SLOW:"
+		"DOTA_Tooltip_ability_ailil_deep_freeze_movespeed_slow"                           "%MOVEMENT SPEED SLOW:"
 		"DOTA_Tooltip_ability_ailil_deep_freeze_slow_duration"                            "SLOW DURATION:"
 		"DOTA_Tooltip_ability_ailil_deep_freeze_stun_duration"                            "STUN DURATION:"
 		"DOTA_Tooltip_ability_ailil_deep_freeze_damage_per_movespeed"                     "DAMAGE PER MISSING MOVEMENT SPEED:"
@@ -414,7 +415,7 @@
 		"DOTA_Tooltip_ability_djinn_flame_path_Description"                               "Create a patch of flame at a location. The flames damage enemies, but allow Djinn to move more quickly while standing in them. Costs Inner Flame to cast."
 		"DOTA_Tooltip_ability_djinn_flame_path_radius"                                    "RADIUS:"
 		"DOTA_Tooltip_ability_djinn_flame_path_duration"                                  "DURATION:"
-		"DOTA_Tooltip_ability_djinn_flame_path_movespeed_bonus"                           "MOVEMENT SPEED BONUS %:"
+		"DOTA_Tooltip_ability_djinn_flame_path_movespeed_bonus"                           "%MOVEMENT SPEED BONUS:"
 		"DOTA_Tooltip_ability_djinn_flame_path_flame_cost"                                "FLAME COST:"
 		"DOTA_Tooltip_ability_djinn_flame_path_AbilityDamage"                             "DAMAGE PER SECOND:"
 
@@ -451,8 +452,8 @@
 		"DOTA_Tooltip_ability_djinn_deflagration_Description"                             "Djinn instantly ends Intense Heat and unleashes an expanding ring of fire that deals damage based on his Inner Flame."
 		"DOTA_Tooltip_ability_djinn_deflagration_radius"                                  "RADIUS:"
 		"DOTA_Tooltip_ability_djinn_deflagration_damage_per_10"                           "DAMAGE PER 10 FLAME:"
-		"DOTA_Tooltip_ability_djinn_deflagration_expansion_speed"                         "%EXPANSION SPEED:"
-		"DOTA_Tooltip_ability_djinn_deflagration_ring_width"                              "%RING WIDTH:"
+		"DOTA_Tooltip_ability_djinn_deflagration_expansion_speed"                         "EXPANSION SPEED:"
+		"DOTA_Tooltip_ability_djinn_deflagration_ring_width"                              "RING WIDTH:"
 		"DOTA_Tooltip_ability_djinn_deflagration_AbilityDamage"                           "DAMAGE:"
 
 		"DOTA_Tooltip_ability_djinn_ember_might"                                          "Ember Might"
@@ -465,8 +466,22 @@
 		"DOTA_Tooltip_ability_djinn_intense_heat_Note0"                                   "Deals damage in 0.2 second intervals."
 		"DOTA_Tooltip_ability_djinn_intense_heat_radius"                                  "RADIUS:"
 		"DOTA_Tooltip_ability_djinn_intense_heat_duration"                                "DURATION:"
-		"DOTA_Tooltip_ability_djinn_intense_heat_bonus_flame_regen"                       "BONUS FLAME REGEN:"
+		"DOTA_Tooltip_ability_djinn_intense_heat_bonus_flame_regen"                       "%BONUS FLAME REGEN:"
 		"DOTA_Tooltip_ability_djinn_intense_heat_AbilityDamage"                           "DAMAGE PER SECOND:"
 
+		// ******************** ABILITY MODIFIERS ********************
+
+        "DOTA_Tooltip_modifier_caldera_buff"                                              "Caldera"
+        "DOTA_Tooltip_modifier_caldera_buff_Description"                                  "Standing in Djinn's Caldera grants you a share of his power. Gaining cooldown reductiona as well as spell amplification and attack damage based on Djinn's Inner Flame."
+
+
+		"DOTA_Tooltip_ability_djinn_caldera"                                              "Caldera"
+		"DOTA_Tooltip_ability_djinn_caldera_Description"                                  "Djinn projects his Inner Flame outward, creating a zone of heated air surrounded by a ring of fire. Allies in the zone gain cooldown reduction and benefit from Ember Might; the effect of Ember Might on Djinn himself is doubled while in the zone. Enemies standing in the ring of fire take damage over time."
+		"DOTA_Tooltip_ability_djinn_caldera_Note0"                                        "Deals damage in 0.2 second intervals."
+		"DOTA_Tooltip_ability_djinn_caldera_Note1"                                        "The ring is 200 units wide and located directly outside of the zone."
+		"DOTA_Tooltip_ability_djinn_caldera_duration"                                     "DURATION:"
+		"DOTA_Tooltip_ability_djinn_caldera_radius"                                       "RADIUS:"
+		"DOTA_Tooltip_ability_djinn_caldera_cooldown_reduction"                           "%COOLDOWN REDUCTION:"
+		"DOTA_Tooltip_ability_djinn_caldera_AbilityDamage"                                "DAMAGE PER SECOND:"
 	}
 }

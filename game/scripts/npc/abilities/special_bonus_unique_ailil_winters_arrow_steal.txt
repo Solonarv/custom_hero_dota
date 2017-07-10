@@ -1,0 +1,24 @@
+"special_bonus_unique_ailil_winters_arrow_steal"
+{
+    "BaseClass"     "ability_datadriven"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_INTEGER"
+            "bonus_movespeed_steal" "4"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_special_bonus_unique_ailil_winters_arrow_steal"
+        {
+            "Passive"       "1"
+            "IsHidden"      "1"
+        }
+    }
+}

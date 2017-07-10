@@ -1,0 +1,15 @@
+"special_bonus_unique_ailil_deep_freeze_pierces_spell_immune"
+{
+    "BaseClass"         "ability_datadriven"
+    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    "Modifiers"
+    {
+        "modifier_special_bonus_unique_ailil_deep_freeze_pierces_spell_immune"
+        {
+            "Passive"   "1"
+            "IsHidden"  "1"
+        }
+    }
+}

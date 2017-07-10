@@ -1823,19 +1823,6 @@
 	                    }
 	                }
 	            }
-	            "OnCreated"
-	            {
-	                "AttachEffect"
-	                {
-	                    "Target"    "TARGET"
-	                    "EffectName"        "particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
-	                    "EffectAttachType"  "follow_origin"
-	                    "ControlPoints"
-	                    {
-	                        "01"    "%radius 0 0"
-	                    }
-	                }
-	            }
 	        }
 	        "modifier_flame_path_check_range"
 	        {
@@ -3069,6 +3056,69 @@
 	                "MODIFIER_STATE_STUNNED"        "MODIFIER_STATE_VALUE_ENABLED"
 	            }
 	            
+	        }
+	    }
+	}
+	"special_bonus_unique_ailil_deep_freeze_pierces_spell_immune"
+	{
+	    "BaseClass"         "ability_datadriven"
+	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	    "Modifiers"
+	    {
+	        "modifier_special_bonus_unique_ailil_deep_freeze_pierces_spell_immune"
+	        {
+	            "Passive"   "1"
+	            "IsHidden"  "1"
+	        }
+	    }
+	}
+	"special_bonus_unique_ailil_rime_breath_damage"
+	{
+	    "BaseClass"         "ability_datadriven"
+	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"          "FIELD_INTEGER"
+	            "bonus_damage"      "120"
+	        }
+	    }
+	
+	    "Modifiers"
+	    {
+	        "modifier_special_bonus_unique_ailil_rime_breath_damage"
+	        {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
+	        }
+	    }
+	}
+	"special_bonus_unique_ailil_winters_arrow_steal"
+	{
+	    "BaseClass"     "ability_datadriven"
+	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_movespeed_steal" "4"
+	        }
+	    }
+	
+	    "Modifiers"
+	    {
+	        "modifier_special_bonus_unique_ailil_winters_arrow_steal"
+	        {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
 	        }
 	    }
 	}
