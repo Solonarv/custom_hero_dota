@@ -1,9 +1,16 @@
-# Grand Magus
+# Tempo, the Master of the Arcane
 
 Built around his ultimate, which reduces all other spells' cooldowns whenever he casts a spell.
 
 ## Abilities
 ### Force Wave
+
+Tempo fires a wave of force that damages enemies it collides with and knocks them back.
+
+| 8.75/8/7.25/6.5 second cooldown | 85/100/115/130 mana |
+|---|---|
+
+
 Shoot a wave of forces that damages enemies and knocks them back.
  - knockback is minor, no other disable
  - possible talents/aghs upgrades:
