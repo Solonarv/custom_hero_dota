@@ -133,5 +133,45 @@ With an Octarine Core, items lose 3.325 seconds of cooldown every 1.75 seconds; 
 
 Tabulating most active items with a cooldown, we get the following table:
 
-| Item | Effect | Base CD | CD with talent | CD with talent + Octarine core |
-|------|--------|---------|----------------|--------------------------------|
+| Item                    | Active effect                          | Base CD   | CD with talent | CD with talent + Core | Notes |
+|-------------------------|----------------------------------------|-----------|----------------|-----------------------|-------|
+| Abyssal Blade           | 2s stun                                | 35s       | 24.1s          | 13.8s | |
+| Arcane Boots            | AoE restore 135 mana                   | 55s       | 37.9s          | 21.7s | 2.45/3.56/6.22 mana/sec |
+| BKB (depleted)          | 5s spell immune and +100% magic resist | 55s       | 37.9s          | 21.7s | up to 23% BKB uptime    |
+| Blade Mail              | 4.5s reflect 100% of dmg taken         | 20s       | 13.8s          | 7.9s | 22.5/32.6/56.9% uptime (that's a lot) |
+| Blink Dagger            | Instant teleport to target location    | 12/3s     | 8.3/2.1s       | 4.7/1.2s | Very fast blink after taking dmg |
+| Boots of Travel         | Teleport to building/creep/hero        | 45s       | 31s            | 17.8s | TP to fight > spam > TP out > repeat |
+| Dagon                   | 400-800 instant magic damage           | 35-15s    | 24.1-10.3s     | 13.8-5.9s | |
+| Ethereal Blade          | Magic dmg + 3s ethereal, 40% magic amp | 20s       | 13.8s          | 7.9s | high uptime, especially on self/ally (lasts 4s) |
+| Eul's Scepter           | 2.5s cyclone                           | 23s       | 15.9s          | 9s   | |
+| Force Staff             | 600 range push forward                 | 20s       | 13.8s          | 7.9s | |
+| Ghost Scepter           | 4s self ethereal                       | 20s       | 13.8s          | 7.9s | high uptime (over 50%) |
+| Glimmer Cape            | 5s invis + 45% magic res, can cast     | 14s       | 9.7s           | 5.5s | super high uptime, but casting disables invis/magicres for 0.6sec so not broken |
+| Guardian Greaves        | AoE restore 160 mana + 250 health      | 40s       | 27.6s          | 15.8s | Can't actually use that often because of debuff |
+| Hand of Midas           | Kill creep for 1.85x XP and 200 gold   | 100s      | 69s            | 39.5s | hard to keep spamming for that long/hard to use midas in a fight |
+| Heaven's Halberd        | 5s ranged/3s melee disarm              | 18s       | 12.4s          | 7.1s | really high uptime against ranged |
+| Hood/Pipe               | 12s 400 magic damage absorb            | 60s       | 41.4s          | 23.7s | quite spammable |
+| Linken's Sphere         | Block a single-target spell            | 13s       | 9.0s           | 5.1s | actually really good |
+| Lotus Orb     | Dispel, then for 6s reflect single-target spells | 15s       | 10.3s          | 5.9s | ~permanent Echo Shell, also really good |
+| Magic Stick/Wand        | Restore 15 health + mana per charge    | 13s       | 9.0s           | 5.1s | too cheap, limited by charge gain anyway |
+| Manta Style             | Dispel, disjoint, 2x 20s illusions  | 45s (ranged) | 31s            | 17.8s | permanent illusions, yay...? |
+| Mekansm                 | AoE restore 250 health                 | 65s       | 44.8s          | 25.7s | just barely longer than the 25s debuff! |
+| Mjollnir             | 15s shield: chance for lightning when hit | 35s       | 24.1s          | 13.8s | permanent shield |
+| Necronomicon            | 50s summon Warrior and Archer          | 90s       | 62.1s          | 35.5s | EZ perma necro summons |
+| Orchid/Bloodthorn | 5s silence + 30% dmg amp/+ truestrike + 100%chance 140%dmg crit | 18s | 12.4s | 7.1s | very high uptime, lot of extra damage |
+| Refresher Orb           | Refresh all cooldowns                  | 195s      | 134.5s         | 77s | hard to spam for that long, and not needed since hero can already shorten cooldowns so much |
+| Rod of Atos             | 2s root                                | 16s       | 11s            | 6.3s  | ....eh? maybe good? |
+| Satanic                 | 4.5s +175% lifesteal                   | 35s       | 24.1s          | 13.8s | Tempo doesn't rightclick...? |
+| Scythe of Vyse          | 3.5s hex                               | 22s       | 15.2s          | 8.7s  | hex good, more hex better. Also gives lots of mana. |
+| Shiva's Guard           | AoE 4s 40% slow + 200 damage           | 30s       | 20.7s          | 11.8s | no crazy synergy, but shiva's is a nice item anyway |
+| Soul Ring               | Lose 150 health, gain 150 temp mana    | 30s       | 20.7s          | 11.8s | 7.25/12.7 mana/sec, not really worth it |
+
+Items left out:
+
+ - Mask of Madness, because the silence renders Tempo near useless and prevents spamming to refresh cooldown anyway
+ - Medaillon of Courage/Solar Crest, since their effects already have 100% uptime
+ - Phase Boots, because come on
+ - Shadow Blade/Silver Edge, because spamming to reduce the cooldown cancels the invis so it's pointless
+ - Urn of Shadows, because doesn't stack + perma uptime + limited by charges
+ 
+Conclusion: this talent is strong, but not massively busted.
