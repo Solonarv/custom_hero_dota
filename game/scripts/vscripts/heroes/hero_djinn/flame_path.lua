@@ -69,6 +69,7 @@ function TickDamageAndCheckRange(kv)
             inRange = true
         end
     end
+    print("Flame path: checking range!")
     if inRange then
         ApplyDamage({
             victim = kv.target,
@@ -77,8 +78,10 @@ function TickDamageAndCheckRange(kv)
             damage_type = DAMAGE_TYPE_MAGICAL,
             ability = kv.ability
         })
+        print("Damage dealt!")
     else
         kv.target:RemoveModifierByNameAndCaster(kv.modifier, kv.caster)
+        print("No flame path in range, removing the damage modifier!")
     end
 end
 

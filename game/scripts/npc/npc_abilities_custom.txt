@@ -1813,6 +1813,9 @@
 	                    {
 	                        "Center"    "TARGET"
 	                        "Radius"    "%radius"
+	                        "Flags"     "DOTA_UNIT_TARGET_FLAG_NONE"
+	                        "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	                    }
 	                    "Action"
 	                    {
@@ -3061,7 +3064,7 @@
 	}
 	"special_bonus_unique_ailil_deep_freeze_pierces_spell_immune"
 	{
-	    "BaseClass"         "ability_datadriven"
+	    "BaseClass"         "special_bonus_undefined"
 	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
@@ -3076,7 +3079,7 @@
 	}
 	"special_bonus_unique_ailil_rime_breath_damage"
 	{
-	    "BaseClass"         "ability_datadriven"
+	    "BaseClass"         "special_bonus_undefined"
 	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
@@ -3100,7 +3103,7 @@
 	}
 	"special_bonus_unique_ailil_winters_arrow_steal"
 	{
-	    "BaseClass"     "ability_datadriven"
+	    "BaseClass"     "special_bonus_undefined"
 	    "AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
 	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	
