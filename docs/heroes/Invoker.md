@@ -177,17 +177,11 @@ Invoker creates a zone of deadly energy, dealing damage over time to enemies tha
 
 > *Ultimate*
 
-Instantly kills the target enemy unit. Invoker takes damage based on the target's current health.
+Invoker sacrifices a portion of his current mana to deal damage based on the mana lost.
 
- - If this kills Invoker, the kill is awarded to the target.
- - Deals pure damage to Invoker.
- - Does not work on buildings.
-
-| 140/120/100 second cooldown | 200 mana |
+| 140/120/100 second cooldown | 70/60/50% of current mana |
 |---|---|
-| Self-damage per target health | 2/1.5/1 |
-| Damage type | Pure |
-| Pierces spell immunity | No |
+| Damage per mana | 0.75/0.85/1.05 |
 
 ## Talents
 
