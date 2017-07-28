@@ -17,7 +17,7 @@ Has no cooldown, but uses Djinn's Inner Flame.
 
 | No cooldown | 20 mana |
 |---|---|
-| Duration | 16 seconds |
+| Duration | 4 seconds |
 | Movement speed bonus | 18/24/30/36% |
 | Damage per second | 40/60/80/100 |
 | Radius | 240/270/300/330 |

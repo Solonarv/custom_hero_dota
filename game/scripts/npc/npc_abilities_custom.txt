@@ -1671,8 +1671,8 @@
 	}
 	"djinn_flame_path"
 	{
-	    "BaseClass"     "ability_datadriven"
-	    // "ScriptFile"    "heroes/hero_djinn/djinn_flame_path.lua"
+	    "BaseClass"     "ability_lua"
+	    "ScriptFile"    "heroes/hero_djinn/djinn_flame_path.lua"
 	    "AbilityTextureName"    "doom_bringer_scorched_earth"
 	
 	    "MaxLevel"      "4"
@@ -1697,7 +1697,6 @@
 	    {
 	        "soundfile"					"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
 	        "particle"					"particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
-	        "particle"                  "particles/dev/empty_particle.vpcf"
 	    }
 	
 	    "AbilitySpecial"
@@ -1710,7 +1709,7 @@
 	        "02"
 	        {
 	            "var_type"      "FIELD_FLOAT"
-	            "duration"      "16.0"
+	            "duration"      "4.0"
 	        }
 	        "03"
 	        {
@@ -1726,139 +1725,6 @@
 	        {
 	            "var_type"          "FIELD_FLOAT"
 	            "interval"          "0.2"
-	        }
-	    }
-	
-	    "OnAbilityPhaseStart"
-	    {
-	        "RunScript"
-	        {
-	            "ScriptFile"    "heroes/hero_djinn/flame_path.lua"
-	            "Function"      "CheckFlameCost"
-	            "flame_cost"    "%flame_cost"
-	        }
-	    }
-	
-	    "OnSpellStart"
-	    {
-	
-	        "FireSound"
-	        {
-	            "EffectName"	"Hero_Jakiro.LiquidFire"
-	            "Target"		"POINT"
-	        }
-	        "RunScript"
-	        {
-	            "ScriptFile"        "heroes/hero_djinn/flame_path.lua"
-	            "Function"          "CreateFlamePatch"
-	            "Target"            "POINT"
-	            "flame_cost"        "%flame_cost"
-	            "particle"          "particles/units/heroes/hero_djinn/djinn_flame_path.vpcf"
-	            "radius"            "%radius"
-	            "duration"          "%duration"
-	            "thinker_modifier"  "modifier_flame_path_thinker"
-	        }
-	    }
-	
-	    "Modifiers"
-	    {
-	        "modifier_flame_path_damage"
-	        {
-	            "IsHidden"          "0"
-	            "IsDebuff"          "1"
-	            "IsPurgable"        "0"
-	
-	            "ThinkInterval"     "%interval"
-	            "OnIntervalThink"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_djinn/flame_path.lua"
-	                    "Function"      "TickDamageAndCheckRange"
-	                    "Target"        "TARGET"
-	                    "damage"        "%AbilityDamage"
-	                    "interval"      "%interval"
-	                    "modifier"      "modifier_flame_path_damage"
-	                }
-	            }
-	        }
-	        "modifier_flame_path_thinker"
-	        {
-	            "Aura"              "modifier_flame_path_check_range"
-	            "Aura_Radius"       "%radius"
-	            "Aura_Teams"        "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-	            "Aura_Types"        "DOTA_UNIT_TARGET_ALL"
-	
-	            "Duration"          "%duration"
-	            "OnDestroy"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_djinn/flame_path.lua"
-	                    "Function"      "RemoveFlamePatch"
-	                    "Target"        "TARGET"
-	                }
-	                "RemoveUnit"
-	                {
-	                    "Target"    "TARGET"
-	                }
-	            }
-	
-	            "IntervalThink"     "%interval"
-	            "OnIntervalThink"
-	            {
-	                "ActOnTargets"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "TARGET"
-	                        "Radius"    "%radius"
-	                        "Flags"     "DOTA_UNIT_TARGET_FLAG_NONE"
-	                        "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	                        "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	                    }
-	                    "Action"
-	                    {
-	                        "ApplyModifier"
-	                        {
-	                            "ModifierName"  "modifier_flame_path_damage"
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	        "modifier_flame_path_check_range"
-	        {
-	            "IsHidden"          "1"
-	            "IsPurgable"        "0"
-	
-	            "OnCreated"
-	            {
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "heroes/hero_djinn/flame_path.lua"
-	                    "Function"      "ApplySpeedBonus"
-	                    "Target"        "TARGET"
-	                    "modifier"      "modifier_flame_path_speed"
-	                }
-	            }
-	            "OnDestroy"
-	            {
-	                "RemoveModifier"
-	                {
-	                    "Target"        "TARGET"
-	                    "ModifierName"  "modifier_flame_path_speed"
-	                }
-	            }
-	        }
-	        "modifier_flame_path_speed"
-	        {
-	            "IsBuff"        "1"
-	            "IsPurgable"    "0"
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"      "%movespeed_bonus"
-	            }
 	        }
 	    }
 	}

@@ -8,24 +8,28 @@
 
 djinn_flame_path = class({})
 
-LinkLuaModifier("modifier_flame_path", "heroes/hero_djinn/modifier_flame_path.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_flame_path_thinker", "heroes/hero_djinn/modifier_flame_path_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 
 function djinn_flame_path:OnSpellStart()
-    if IsServer() then
-        CreateModifierThinker(self:GetCaster(), self, "modifier_flame_path_thinker", {duration = self:GetDuration(), damage = self:GetAbilityDamage()}, self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
-    end
     -- spend flame
     self:GetCaster().flame = self:GetCaster().flame - self:GetFlameCost()
 
     local pos = self:GetCursorPosition()
-    local particleName = "particles/units/heroes/hero_jakiro/jakiro_macropyre.vpcf"
-    local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
-    ParticleManager:SetParticleControl( pfx, 0, pos )
-    ParticleManager:SetParticleControl( pfx, 1, pos )
-    ParticleManager:SetParticleControl( pfx, 2, Vector( self:GetDuration(), 0, 0 ) )
-    ParticleManager:SetParticleControl( pfx, 3, pos )
+    local caster = self:GetCaster()
+    local radius = self:GetRadius()
+    local duration = self:GetDuration()
+
+    local dummy = CreateUnitByName("npc_dota_thinker", pos, false, caster, caster, caster:GetTeamNumber())
+    dummy:AddNewModifier(caster, self, "modifier_flame_path_thinker", {duration = duration})
+    dummy:AddNewModifier(caster, self, "modifier_phased", {})
 end
+
+--function djinn_flame_path:OnAbilityPhaseStart()
+--    if not self:CanAffordFlame() then
+--        print("Can't afford flame, interrupting")
+--        self:GetCaster():Interrupt()
+--    end
+--end
 
 function djinn_flame_path:CastFilterResultLocation(hLoc)
     if self:CanAffordFlame() then
