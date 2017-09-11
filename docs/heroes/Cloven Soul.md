@@ -39,17 +39,24 @@ Abberath's hooves shake the ground, damaging nearby enemies with each step he ta
 
 > *No target*
 
-Abberath surrounds himself with torrid air. If Abberath is damaged by a nearby enemy, the shroud reflects a portion of the damage back to the attacker.
+Abberath surrounds himself with torrid air. If Abberath is damaged by a nearby enemy, the shroud reflects a portion of the damage back to the attacker. The shroud can only reflect a certain amount of damage.
+
+| 50/38/26/14 second cooldown | 80/95/110/125 mana |
+|---|---|
+| Duration | 7/8/9/10 seconds |
+| Reflect portion | 8/10/12/14% |
+| Reflect radius | 240/280/320/360 |
+| Shroud health | 80/100/120/140 + 40/50/60/70% of Strength |
 
 ### Consume Soul
 
 > *Ultimate*
 
 Attempt to feast on the target's soul, instantly killing a non-ancient creep or dealing massive pure damage to a hero.
-If the target is killed by Consume Soul, Abberath permanently gains bonus Strength. Heroes give **5** times as much Strength.
+If the target is killed by Consume Soul, Abberath permanently gains bonus Strength. Heroes give **3** times as much Strength.
 
 | 70/60/50 second cooldown | 175/225/275 mana |
 |---|---|
 | Damage | 350/450/550 |
 | Cast range | 150 |
-| Strength gained | 1.2/1.6/2 |
+| Strength gained | 0.8/1.1/1.4 |
