@@ -1,0 +1,40 @@
+"rider_charge"
+{
+        "BaseClass"				        "ability_lua"
+        "ScriptFile"                    "heroes/hero_rider/rider_charge.lua"
+        "AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+        "AbilityTextureName"			"ailil_rime_breath"
+
+        "precache"
+        {
+//            "soundfile"		""
+//            "particle"		""
+        }
+
+        "AbilityCastPoint"				"0.1"
+
+        "AbilityManaCost"               "80 90 100 110"
+        "AbilityCooldown"               "20 17 14 11"
+
+        "AbilityDamage"                 "80 120 160 200"
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "movement_speed_bonus_pct" "25 30 35 40"
+            }
+            "02"
+            {
+                "collision_radius"  "200"
+            }
+            "03"
+            {
+                "stun_duration" "1 1.5 2 2.5"
+            }
+        }
+}
