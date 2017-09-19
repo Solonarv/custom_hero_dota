@@ -10,13 +10,15 @@ Grants a charge of Acceleration and launches a slow-moving pulse of energy that 
 Acceleration grants attack speed per charge and causes attacks to reset Acceleration Strike's cooldown.
 Casting Acceleration Strike while at maximum charges removes all charges.
 
+ - Extra casts ignore current Crescendo charges and instead use the same damage bonus as the first cast (but never stun)
+
 | 10/9/8/7 second cooldown | 70 mana |
 |---|---|
 | Damage | 50 |
 | Projectile speed | 600 + 150 per Acceleration charge |
 | Attack speed per charge | 40 |
 | Maximum charges | 3/4/5/6 |
-| Charge duration | 4 seconds |
+| Charge duration | 2 seconds |
 
 ### Tempo Theft
 
@@ -57,23 +59,20 @@ Sonus cannot gain or consume Crescendo charges while Crescendo is on cooldown.
 | Bonus damage per charge | 4%/5%/6%/7% |
 | Stun duration | 0.8/1.2/1.6/2 seconds |
 
-### Resonance Cascade
+### Foresight
 
-> *Ultimate, No Target*
+> *Ultimate, Active*
 
-Sonus emits several waves of resonating sound that damage enemies they hit. If a hero is hit by a wave,
-they will emit a weaker wave after a short delay. Waves that arrive during this delay are not echoed.
-This effect can chain indefinitely.
+Sonus reads his opponents' battle rhythm, avoiding their attacks and finding their weak points.
 
- - If a hero takes less than 5 damage from a wave's impact, the wave is not echoed.
- - The first wave is emitted instantly, then every 0.6s afterwards.
- - If this spell consumes Crescendo charges, the damage bonus is applied to all hits, but the stun is only applied
-   the first time each enemy is hit by this cast.
+Instantly disjoints all incoming projectiles. If any projectiles from enemy heroes were disjointed, the cooldown is reduced drastically.
 
-| 180/160/140 second cooldown | 225/350/475 mana |
+For each spell projectile he disjointed, the attacker takes more damage from Sonus' spells for **2** seconds.
+
+For each attack projectile he disjointed, Sonus gains true strike and bonus damage against the attacker for **2** seconds.
+
+| 30 second cooldown | 150/75/0 mana |
 |---|---|
-| Damage per wave | 100 |
-| Waves | 2/3/4 |
-| Wave interval | 0.6 seconds |
-| Echo delay | 0.4 seconds |
-| Echo damage | 50%/60%/70% |
+| Reduced cooldown | 2.2/1.6/1 second |
+| Bonus spell damage | 20%/30%/40% |
+| Bonus attack damage | 100/175/250 |
