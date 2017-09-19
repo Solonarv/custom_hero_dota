@@ -53,6 +53,7 @@ Sonus cannot gain or consume Crescendo charges while Crescendo is on cooldown.
 | 11/10/8/9 second cooldown | No cost |
 |---|---|
 | Maximum charges | 4 |
+| Charge duration | 6 seconds |
 | Bonus damage per charge | 4%/5%/6%/7% |
 | Stun duration | 0.8/1.2/1.6/2 seconds |
 
