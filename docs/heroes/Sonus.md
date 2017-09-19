@@ -16,7 +16,7 @@ Casting Acceleration Strike while at maximum charges removes all charges.
 | Projectile speed | 600 + 150 per Acceleration charge |
 | Attack speed per charge | 40 |
 | Maximum charges | 3/4/5/6 |
-| Charge duration | 2 seconds |
+| Charge duration | 4 seconds |
 
 ### Tempo Theft
 
