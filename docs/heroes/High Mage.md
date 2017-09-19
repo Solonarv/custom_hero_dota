@@ -1,11 +1,11 @@
-# Tempo, the Master of the Arcane
+# Lor'ethel, the High Mage
 
 Built around his ultimate, which reduces all other spells' cooldowns whenever he casts a spell.
 
 ## Abilities
 ### Force Wave
 
-Tempo fires a wave of force that damages enemies it collides with and knocks them back.
+Lor'ethel fires a wave of force that damages enemies it collides with and knocks them back.
 
 | 8.75/8/7.25/6.5 second cooldown | 85/100/115/130 mana |
 |---|---|
@@ -37,7 +37,7 @@ it also spreads to a random nearby unaffected unit.
    - spreads to all nearby targets/more than just one
 
 ### Augment
-Tempo gains a surge of arcane power, adding damage to each hit he deals. The buff is removed one second after Tempo next casts a spell. Has 20% effectiveness on Arcane Mark.
+Lor'ethel gains a surge of arcane power, adding damage to each hit he deals. The buff is removed one second after Lor'ethel next casts a spell. Has 20% effectiveness on hits dealt by Arcane Mark.
 
 | 6 second cooldown | 50/70/90/110 mana |
 |---|---|
@@ -46,7 +46,7 @@ Tempo gains a surge of arcane power, adding damage to each hit he deals. The buf
 
 ### Energy Flow
 
-Tempo manipulates the flow of arcane energies around him, passively causing each spell cast to reduce his other spells' cooldowns.
+Lor'ethel manipulates the flow of arcane energies around him, passively causing each spell cast to reduce his other spells' cooldowns.
 
 | Passive | |
 |---|---|
@@ -72,7 +72,7 @@ Quick summary of cooldowns (assuming spells are maxed):
 | Augment     | 6.0s     | 4.5s                                  |
 
 Energy Flow effectively takes 2.5/3/3.5 (5.5 with lv25 talent) seconds off of each cooldown,
-since Tempo can just rotate his three spells so each cast is followed by two other casts.
+since Lor'ethel can just rotate his three spells so each cast is followed by two other casts.
 
 | Spell       | Effective Cooldown | Effective Cooldown with Octarine Core (25% CDR) |
 |-------------|--------------------|-------------------------------------------------|
@@ -80,7 +80,7 @@ since Tempo can just rotate his three spells so each cast is followed by two oth
 | Arcane Mark | 4.5/4/3.5s         | 2.75/2.25/1.75s |
 | Augment     | 3.5/3/2.5s         | 2/1.5/1s |
 
-Octarine Core provides an effective ~50% cooldown reduction on all three skills, basically doubling Tempo's
+Octarine Core provides an effective ~50% cooldown reduction on all three skills, basically doubling Lor'ethel's
 DPS output (while also doubling mana expenditure).
 
 A full cycle costs 380 mana, and can be executed every 1.75 seconds. That's 217 mana/second.
@@ -97,7 +97,7 @@ With the level 25 talent `+1 second Energy Flow Cooldown reduction; +50% mana co
 | Arcane Mark | 2.5 seconds        | 0 seconds |
 | Augment     | 0.5 seconds        | 0 seconds |
 
-A level 25 Tempo with Octarine Core (which is not a difficult item to acquire if you've made it to level 25) is thus *utterly terrifying*.
+A level 25 Lor'ethel with Octarine Core (which is not a difficult item to acquire if you've made it to level 25) is thus *utterly terrifying*.
 
 However, let's look at the mana expenditure.
 
@@ -115,7 +115,7 @@ Assuming the player manages to perform 3 rotations per second (may not even be p
 | Total | 811 |
 | Total DPS | 2433 |
 
-> \* Note: normally only half the Arcane Mark ticks are affected by Augment, but if Tempo is continuously casting 3 rotations per second he always has 3 Augment instances up.
+> \* Note: normally only half the Arcane Mark ticks are affected by Augment, but if Lor'ethel is continuously casting 3 rotations per second he always has 3 Augment instances up.
 
 This incredible damage comes at the cost of spending 1710 mana per second, which is beyond any mana regen that could reasonably be acquired. However, it is also enough to delete an enemy hero in ~6 rounds of casting, or ~2 seconds.
 
@@ -123,7 +123,7 @@ This seems sufficiently fair to remain in the hero's initial release.
 
 #### 30% of Energy Flow works on items
 
-Tempo casting at full speed can cast 3 spells every 3.5 seconds without Octarine Core, or every 1.75 seconds with the Core.
+Lor'ethel casting at full speed can cast 3 spells every 3.5 seconds without Octarine Core, or every 1.75 seconds with the Core.
 
 This talent grants a total of `0.3 * 3 * 1.75 =` 1.575s cooldown reduction per round of spells.
 
@@ -161,14 +161,14 @@ Tabulating most active items with a cooldown, we get the following table:
 | Orchid/Bloodthorn | 5s silence + 30% dmg amp/+ truestrike + 100%chance 140%dmg crit | 18s | 12.4s | 7.1s | very high uptime, lot of extra damage |
 | Refresher Orb           | Refresh all cooldowns                  | 195s      | 134.5s         | 77s | hard to spam for that long, and not needed since hero can already shorten cooldowns so much |
 | Rod of Atos             | 2s root                                | 16s       | 11s            | 6.3s  | ....eh? maybe good? |
-| Satanic                 | 4.5s +175% lifesteal                   | 35s       | 24.1s          | 13.8s | Tempo doesn't rightclick...? |
+| Satanic                 | 4.5s +175% lifesteal                   | 35s       | 24.1s          | 13.8s | Lor'ethel doesn't rightclick...? |
 | Scythe of Vyse          | 3.5s hex                               | 22s       | 15.2s          | 8.7s  | hex good, more hex better. Also gives lots of mana. |
 | Shiva's Guard           | AoE 4s 40% slow + 200 damage           | 30s       | 20.7s          | 11.8s | no crazy synergy, but shiva's is a nice item anyway |
 | Soul Ring               | Lose 150 health, gain 150 temp mana    | 30s       | 20.7s          | 11.8s | 7.25/12.7 mana/sec, not really worth it |
 
 Items left out:
 
- - Mask of Madness, because the silence renders Tempo near useless and prevents spamming to refresh cooldown anyway
+ - Mask of Madness, because the silence renders Lor'ethel near useless and prevents spamming to refresh cooldown anyway
  - Medaillon of Courage/Solar Crest, since their effects already have 100% uptime
  - Phase Boots, because come on
  - Shadow Blade/Silver Edge, because spamming to reduce the cooldown cancels the invis so it's pointless
