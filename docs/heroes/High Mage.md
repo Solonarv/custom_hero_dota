@@ -57,7 +57,7 @@ If the shield is broken by an enemy, the attacker is disarmed.
 
 ### Recycle (Yank)
 
-> *No Target*
+> *Unit Target*
 
 Lor'ethel wraps the recycled energy around an enemy and pulls them toward his location, damaging them in the process.
 The damage is equal to the energy stored in the buffer.
