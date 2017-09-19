@@ -36,21 +36,50 @@ it also spreads to a random nearby unaffected unit.
    - can spread to allies (still only damages enemies)
    - spreads to all nearby targets/more than just one
 
-### Augment
-Lor'ethel gains a surge of arcane power, adding damage to each hit he deals. The buff is removed one second after Lor'ethel next casts a spell. Has 20% effectiveness on hits dealt by Arcane Mark.
+### Recycle (Shield)
 
-| 6 second cooldown | 50/70/90/110 mana |
+> *Active (No Target), Passive*
+
+Whenever Lor'ethel deals damage, he stores a portion of the damage in a buffer.
+
+**ACTIVE:** Turn the recycle buffer's energy into a shield that absorbs damage.
+If the shield is broken by an enemy, the attacker is disarmed.
+
+ - The buffer decays exponentially over time.
+ - Shares cooldown and levels with Recycle (Yank)
+
+| 14 second cooldown | 120 mana |
 |---|---|
-| Duration | 5/6/7/8 seconds |
-| Added damage | 15/25/35/45 |
+| Recycled damage | 8/10/12/14% |
+| Buffer decay per second | 20% |
+| Shield duration | 4/5/6/7 seconds |
+| Disarm duration | 2 seconds |
+
+### Recycle (Yank)
+
+> *No Target*
+
+Lor'ethel wraps the recycled energy around an enemy and pulls them toward his location, damaging them in the process.
+The damage is equal to the energy stored in the buffer.
+
+| 14 second cooldown | 120 mana |
+|---|---|
+| Cast range | 800/1000/1200/1400 |
+| Pull distance | 200/300/400/500 |
+
 
 ### Energy Flow
 
-Lor'ethel manipulates the flow of arcane energies around him, passively causing each spell cast to reduce his other spells' cooldowns.
+**PASSIVE:** Lor'ethel manipulates the flow of arcane energies around him, passively causing each spell cast to reduce his other spells' cooldowns.
 
-| Passive | |
+**ACTIVE:** Lor'ethel gains a surge of arcane power, adding damage to each hit he deals.
+The buff is removed one second after Lor'ethel next casts a spell. Has 20% effectiveness on hits dealt by Arcane Mark.
+
+| 6 second cooldown | 70/90/110 mana |
 |---|---|
-| Cooldown reduction | 1.25/1.5/1.75 seconds |
+| Passive cooldown reduction | 1.25/1.5/1.75 seconds |
+| Active duration | 6/7/8 seconds |
+| Active added damage | 25/35/45 |
 
 ## Talents
 
