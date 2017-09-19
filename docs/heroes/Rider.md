@@ -4,6 +4,27 @@ Replaces Chaos Knight.
 
 The Rider is a tanky initiator who becomes more threatening the more damage he takes.
 
+## Base stats
+
+### Stats
+
+| Stat | Base value |
+|---|---|
+| Movement Speed | **315** |
+| Damage | **27-37** *(**49-59** with starting str)* |
+| Base Attack Time | **1.8** *(slow)*|
+| Attack Range | **150** *(melee)*|
+| Attack point | **0.33** |
+| Armor | **0.71** *(**3.28** with starting agi)* |
+| Turn Rate | **0.4** *(slow-ish)*|
+
+
+### Attributes
+
+| Strength | Agility | Intelligence |
+|---|---|---|
+| **22** + **3.3**/lvl | **18** + **2.5**/lvl | **14** + **2.1**/lvl |
+
 ## Abilties
 
 ### Charge
