@@ -65,14 +65,18 @@ Sonus cannot gain or consume Crescendo charges while Crescendo is on cooldown.
 
 Sonus reads his opponents' battle rhythm, avoiding their attacks and finding their weak points.
 
-Instantly disjoints all incoming projectiles. If any projectiles from enemy heroes were disjointed, the cooldown is reduced drastically.
+Instantly disjoints all incoming projectiles and blocks all damage for **0.2** seconds.
+If any projectiles from enemy heroes were disjointed or hero damage was blocked, the cooldown is reduced drastically.
 
 For each spell projectile he disjointed, the attacker takes more damage from Sonus' spells for **2** seconds.
 
 For each attack projectile he disjointed, Sonus gains true strike and bonus damage against the attacker for **2** seconds.
+
+For each hero that failed to damage him, Sonus takes reduced damage from that hero for **2** seconds.
 
 | 30 second cooldown | 150/75/0 mana |
 |---|---|
 | Reduced cooldown | 2.2/1.6/1 second |
 | Bonus spell damage | 20%/30%/40% |
 | Bonus attack damage | 100/175/250 |
+| Damage reduction | 50%/60%/70% |
